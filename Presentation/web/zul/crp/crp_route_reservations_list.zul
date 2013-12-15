@@ -1,0 +1,105 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/zul/templates/main_template.zul"?>
+<?page viewport="width=device-width, initial-scale=0.5, user-scalable=yes"?>
+<?page title="${labels.template.title}"?>
+<?link rel="shortcut icon" type="image/x-icon" href="/img/logo.png"?>
+<?link rel="icon" type="image/x-icon" href="/img/logo.png"?>
+<?root-attributes lang="en"xml:lang="en"?>
+<window xmlns="http://www.zkoss.org/2005/zul"
+        self="@define(detail)"
+        border="none"
+        width="1200px"
+        apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.teiath.web.vm.crp.ListReservationsVM')"
+		>
+
+	<script>
+		function doLoad(ownerval) {
+		$('.rateitowner').rateit({
+		step: 1,
+		starwidth: 16,
+		starheight: 16,
+		readonly: true,
+		value: ownerval
+		});
+		}
+	</script>
+
+	<zscript><![CDATA[
+
+      import java.util.Comparator;
+      import org.teiath.web.comparator.ListboxEmptyComparator;
+
+      Comparator comparator = new ListboxEmptyComparator();
+  ]]></zscript>
+
+	<style>
+		tr.z-row-over > td.z-row-inner {
+		border-bottom: 1px dotted #434E9E;
+		border-top: 1px dotted #434E9E;
+		}
+
+		tr.z-row-over > td.z-row-inner, tr.z-row-over > .z-cell {
+		background-image: none;
+		}
+	</style>
+	<div sclass="detail">
+		<div width="99%">
+			<hbox width="100%" widths="50%, 50%">
+				<label sclass="headerText" value="${labels.route.reservations}" />
+				<div width="100%" style="text-align: right">
+					<toolbarbutton image="/img/back.png" onClick="@command('onBack')" />
+				</div>
+			</hbox>
+			<separator height="20px" />
+			<label sclass="labelNSGrayBold" value="${labels.reservation.route}" />
+			<label value="@load(vm.route.startingPoint)" />
+			<label value="-" />
+			<label value="@load(vm.route.destinationPoint)" />
+			<separator height="10px" />
+			<label sclass="labelNSGrayBold" value="${labels.reservation.date}" />
+			<label value="@load(vm.route.routeDate) @converter('formatedDate', format='dd/MM/yyyy')" />
+			<separator height="10px" />
+			<label sclass="labelNSGrayBold" value="${labels.reservation.time}" />
+			<label value="@load(vm.route.routeTime) @converter('formatedDate', format='KK:mm')" />
+			<separator height="20px" />
+			<div align="right">
+				<hbox>
+					<toolbarbutton id="viewButton" image="/img/view.png" onClick="@command('onView')"
+					               disabled="@load(empty vm.selectedReservation)" />
+					<toolbarbutton image="/img/print.png"
+					               onClick="@command('onPrintPDF')" />
+				</hbox>
+			</div>
+			<listbox model="@load(vm.reservationsList)" selectedItem="@bind(vm.selectedReservation)" paginal="@{paging}"
+			         id="reservationsListbox" width="100%" context="contextPopup">
+				<listhead>
+					<listheader id="passengerLastname" label="${labels.reservation.passengerLastname}" width="34%"
+					            sortAscending="${comparator}" sortDescending="${comparator}"
+					            onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="passengerName" label="${labels.reservation.passengerName}" width="33%"
+					            sortAscending="${comparator}" sortDescending="${comparator}"
+					            onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="passengerRating" label="${labels.reservation.passengerRating}" width="33%"
+					            sortAscending="${comparator}" sortDescending="${comparator}"
+					            onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+				</listhead>
+				<template name="model" var="item">
+					<listitem>
+						<listcell label="${item.user.lastName}" style="text-align: left" />
+						<listcell label="${item.user.firstName}" style="text-align: left" />
+						<listcell label="${item.user.averagePassengerRating}" style="text-align: center" />
+					</listitem>
+				</template>
+			</listbox>
+			<label id="empty" value="${labels.reservation.noReservation}" visible="false"></label>
+			<paging id="paging" pageSize="10" mold="os" detailed="true" onPaging="@command('onPaging')" />
+		</div>
+	</div>
+	<style src="/js/rateit/rateit.css" />
+	<script src="/js/rateit/jquery.rateit.js"></script>
+
+</window>

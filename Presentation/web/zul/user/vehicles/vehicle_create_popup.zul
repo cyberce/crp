@@ -1,0 +1,102 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<window xmlns="http://www.zkoss.org/2005/zul"
+        id="vehicleCreatePopupWin"
+        border="normal"
+        width="730px"
+        mode="modal"
+        apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.teiath.web.vm.vehicle.CreateVehiclePopupVM')">
+
+	<style>
+		tr.z-row-over > td.z-row-inner {
+		border-bottom: 1px solid #FFFFFF;
+		border-top: 1px solid #FFFFFF;
+		}
+
+		tr.z-row-over > td.z-row-inner, tr.z-row-over > .z-cell {
+		background-image: none;
+		}
+	</style>
+	<div form="@id('fx') @load(vm.vehicle) @save(vm.vehicle, before='onSave')" sclass="detail">
+		<div align="left" width="95%">
+			<separator height="20px" />
+			<grid oddRowSclass="non-odd" style="border: 0">
+				<columns>
+					<column width="20%" />
+					<column width="30%" />
+					<column width="20%" />
+					<column width="30%" />
+				</columns>
+				<rows>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayNormal" value="${labels.vehicle.brand}* :" />
+						<vbox>
+							<label multiline="true" width="100%" sclass="labelMandatory"
+							       value="@load(vmsgs['fx_lastName'])" />
+							<textbox maxlength="50" width="200px" tabindex="1" mold="rounded"
+							         value="@bind(fx.brand)"
+							         constraint="no empty: Το πεδίο θα πρέπει να συμπληρωθεί υποχρεωτικά" />
+						</vbox>
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayNormal" value="${labels.vehicle.model}* :" />
+						<vbox>
+							<label multiline="true" width="100%" sclass="labelMandatory"
+							       value="@load(vmsgs['fx_lastName'])" />
+							<textbox maxlength="50" width="200px" tabindex="1" mold="rounded"
+							         value="@bind(fx.model)"
+							         constraint="no empty: Το πεδίο θα πρέπει να συμπληρωθεί υποχρεωτικά" />
+						</vbox>
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayNormal" value="${labels.vehicle.plateNumber}* :" />
+						<vbox>
+							<label multiline="true" width="100%" sclass="labelMandatory"
+							       value="@load(vmsgs['fx_lastName'])" />
+							<textbox maxlength="50" width="200px" tabindex="1" mold="rounded"
+							         value="@bind(fx.plateNumber)"
+							         constraint="no empty: Το πεδίο θα πρέπει να συμπληρωθεί υποχρεωτικά" />
+						</vbox>
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayNormal" value="${labels.vehicle.year}:" />
+						<vbox>
+							<label multiline="true" width="100%" sclass="labelMandatory"
+							       value="@load(vmsgs['fx_lastName'])" />
+							<textbox maxlength="50" width="200px" tabindex="1" mold="rounded"
+							         value="@bind(fx.year)" />
+						</vbox>
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayNormal" value="${labels.vehicle.color}:" />
+						<vbox>
+							<label multiline="true" width="100%" sclass="labelMandatory"
+							       value="@load(vmsgs['fx_lastName'])" />
+							<textbox maxlength="50" width="200px" tabindex="1" mold="rounded"
+							         value="@bind(fx.color)" />
+						</vbox>
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayNormal" value="${labels.vehicle.type}:" />
+						<vbox>
+							<radiogroup width="100%" id="vehicleTypeRG"
+							            selectedItem="@bind(fx.type) @converter('org.teiath.web.converter.RadiogroupIntegerConverter')">
+								<radio value="0" label="${labels.vehicle.car}" radiogroup="vehicleTypeRG" tabindex="1"/>
+								<radio value="1" label="${labels.vehicle.motorcycle}" tabindex="2"/>
+							</radiogroup>
+						</vbox>
+					</row>
+				</rows>
+			</grid>
+			<separator height="20px" />
+			<hbox width="100%" widths="@load(not empty fx.id? '50%, 50%': '50%, 50%')">
+				<div width="100%" style="text-align: right">
+					<toolbarbutton image="/img/save.png" onClick="@command('onSave')" />
+					<toolbarbutton image="/img/cancel.png" onClick="@command('onCancel')" />
+				</div>
+			</hbox>
+			<separator height="20px" />
+		</div>
+	</div>
+
+</window>

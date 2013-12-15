@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="passengersSubreport" language="groovy" pageWidth="105" pageHeight="555" orientation="Landscape" columnWidth="105" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b09e4b3a-d0b3-41dd-b72f-caf0b23a3e7f">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ROUTE_ID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select distinct
+    com_users.user_firstname,
+    com_users.user_lastname
+from
+    com_users,
+    crp_routes,
+    crp_route_interests
+where crp_routes.rout_id = $P{ROUTE_ID}
+and   crp_route_interests.rout_id = crp_routes.rout_id
+and   crp_route_interests.rint_status = 1
+and   com_users.user_id = crp_route_interests.user_id]]>
+	</queryString>
+	<field name="user_firstname" class="java.lang.String"/>
+	<field name="user_lastname" class="java.lang.String"/>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement uuid="2ab71de0-95f6-4ec2-bc93-641f3d9c141c" x="0" y="0" width="100" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{user_lastname}+" "+$F{user_firstname}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

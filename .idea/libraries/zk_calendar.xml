@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="zk-calendar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/zk_calendar/calendar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

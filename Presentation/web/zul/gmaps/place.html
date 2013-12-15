@@ -1,0 +1,400 @@
+<script type="text/Javascript">
+<![CDATA[
+var searchMapFrom;
+var searchMapTo;
+var resultsMap;
+var mOptions;
+var drawingManagerFrom;
+var drawingManagerTo;
+var markerFrom;
+var markerTo;
+var infoWindow;
+var startInput;
+var endInput;
+var startAutocomplete;
+var endAutocomplete;
+var autocompleteOptions = {
+    componentRestrictions: {country: 'gr'}
+};
+var geocoder;
+var popularPlaces;
+var selectedPopularPlace;
+var myPlaces;
+var selectedMyPlace;
+var homeAddress;
+var routeData;
+var loadedFromAddress;
+var loadedToAddress;
+
+
+// load the google api loader
+if (typeof(google) == 'undefined' || !google.load) {
+    jq.getScript('https://www.google.com/jsapi', function () {
+        loadMaps();
+    });
+}
+else {
+    // otherwise just load maps
+    loadMaps();
+}
+
+// load the google maps api
+function loadMaps() {
+    google.load("maps", "3", {
+        callback: initialize,
+        language: 'el',
+        other_params: 'sensor=false&libraries=drawing,geometry,places'
+    });
+}
+
+function initialize() {
+    geocoder = new google.maps.Geocoder();
+
+    google.maps.visualRefresh = true;
+
+    mOptions = {
+        center: new google.maps.LatLng(38.0034063, 23.67906400000004),
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeControl: false,
+        streetViewControl: false
+    };
+
+    startInput = (document.getElementById('startPoint'));
+    endInput = (document.getElementById('endPoint'));
+    startAutocomplete = new google.maps.places.Autocomplete(startInput, autocompleteOptions);
+    endAutocomplete = new google.maps.places.Autocomplete(endInput, autocompleteOptions);
+
+    google.maps.event.addListener(startAutocomplete, 'place_changed', function () {
+        autocompleteSelected(startInput, startAutocomplete);
+
+        var start = jq("#startPoint").val();
+        geocoder.geocode({ 'address': start}, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                populateZKTextbox('startCoordsHolder', results[0].geometry.location + "|" + start);
+            }
+        });
+    });
+
+    google.maps.event.addListener(endAutocomplete, 'place_changed', function () {
+        autocompleteSelected(endInput, endAutocomplete);
+
+        var end = jq("#endPoint").val();
+        geocoder.geocode({ 'address': end}, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                populateZKTextbox('endCoordsHolder', results[0].geometry.location + "|" + end);
+            }
+        });
+    });
+
+    searchMapFrom = new google.maps.Map(jq('#search-map-canvas-from')[0], mOptions);
+    drawingManagerFrom = new google.maps.drawing.DrawingManager({
+        drawingMode: google.maps.drawing.OverlayType.MARKER,
+        drawingControl: false,
+        drawingControlOptions: {
+            position: google.maps.ControlPosition.TOP_CENTER,
+            drawingModes: [
+                google.maps.drawing.OverlayType.MARKER
+            ]
+        }
+    });
+    drawingManagerFrom.setMap(searchMapFrom);
+    google.maps.event.addListener(drawingManagerFrom, 'markercomplete', function (marker) {
+        if (markerFrom != null) {
+            markerFrom.setMap(null);
+        }
+        markerFrom = marker;
+    });
+
+    searchMapTo = new google.maps.Map(jq('#search-map-canvas-to')[0], mOptions);
+    drawingManagerTo = new google.maps.drawing.DrawingManager({
+        drawingMode: google.maps.drawing.OverlayType.MARKER,
+        drawingControl: false,
+        drawingControlOptions: {
+            position: google.maps.ControlPosition.TOP_CENTER,
+            drawingModes: [
+                google.maps.drawing.OverlayType.MARKER
+            ]
+        }
+    });
+    drawingManagerTo.setMap(searchMapTo);
+    google.maps.event.addListener(drawingManagerTo, 'markercomplete', function (marker) {
+        if (markerTo != null) {
+            markerTo.setMap(null);
+        }
+        markerTo = marker;
+    });
+
+    jq("#dialog-form-from").dialog({
+        autoOpen: false,
+        height: 500,
+        width: 600,
+        modal: true,
+        buttons: {
+            "Επιλογή": function () {
+                geocoder.geocode({'latLng': markerFrom.getPosition()}, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                            jq("#startPoint").val(results[0].formatted_address);
+                            populateZKTextbox('startCoordsHolder', results[0].geometry.location + "|" + results[0].formatted_address);
+                        } else {
+                            alert('No results found');
+                        }
+                    } else {
+                        alert('Geocoder failed due to: ' + status);
+                    }
+                });
+                jq(this).dialog("close");
+            },
+            "Ακύρωση": function () {
+                jq(this).dialog("close");
+            }
+        },
+        open: function (event, ui) {
+            google.maps.event.trigger(searchMapFrom, 'resize');
+        },
+        close: function () {
+        }
+    });
+
+    jq("#startPoint").keyup(function (e) {
+
+        if((e.keyCode == 8) || (e.keyCode == 46)) {
+            if(jq("#startPoint").val() == "") {
+                populateZKTextbox('startCoordsHolder', "");
+            }
+        }
+
+    });
+
+    jq("#endPoint").keyup(function (e) {
+
+        if((e.keyCode == 8) || (e.keyCode == 46)) {
+            if(jq("#startPoint").val() == "") {
+                populateZKTextbox('endCoordsHolder', "");
+            }
+        }
+
+    });
+
+    jq("#dialog-form-to").dialog({
+        autoOpen: false,
+        height: 500,
+        width: 600,
+        modal: true,
+        buttons: {
+            "Επιλογή": function () {
+                geocoder.geocode({'latLng': markerTo.getPosition()}, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                            jq("#endPoint").val(results[0].formatted_address);
+                            populateZKTextbox('endCoordsHolder', results[0].geometry.location + "|" + results[0].formatted_address);
+
+                        } else {
+                            alert('No results found');
+                        }
+                    } else {
+                        alert('Geocoder failed due to: ' + status);
+                    }
+                });
+                jq(this).dialog("close");
+            },
+            "Ακύρωση": function () {
+                jq(this).dialog("close");
+            }
+        },
+        open: function (event, ui) {
+            google.maps.event.trigger(searchMapTo, 'resize');
+        },
+        close: function () {
+        }
+    });
+
+    jq("#dialog-form-my-places").dialog({
+        autoOpen: false,
+        height: 400,
+        width: 500,
+        modal: true,
+        buttons: {
+            "Επιλογή": function () {
+                var input = jq('#' + jq(this).data('inputId'));
+                if (selectedMyPlace != null) {
+                    input.val(selectedMyPlace);
+
+                    if (jq(this).data('inputId') == 'startPoint') {
+                        geocoder.geocode({ 'address': selectedMyPlace}, function (results, status) {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                populateZKTextbox('startCoordsHolder', results[0].geometry.location + "|" + results[0].formatted_address);
+                            }
+                        });
+                    } else {
+                        geocoder.geocode({ 'address': selectedMyPlace}, function (results, status) {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                populateZKTextbox('endCoordsHolder', results[0].geometry.location + "|" + results[0].formatted_address);
+                            }
+                        });
+                    }
+
+                    jq(this).dialog("close");
+                }
+            },
+            "Ακύρωση": function () {
+                selectedMyPlace = null;
+                jq(this).dialog("close");
+            }
+        },
+        close: function () {
+            selectedMyPlace = null;
+            jq('#myPlacesSelectable .ui-selected').removeClass('ui-selected');
+        }
+    });
+
+
+    jq("#fromSearchMap").button().click(function () {
+        jq("#dialog-form-from").data('inputId', 'startPoint').dialog("open");
+
+    });
+
+    jq("#toSearchMap").button().click(function () {
+        jq("#dialog-form-to").data('inputId', 'endPoint').dialog("open");
+    });
+
+    jq("#depListPlaces").button().click(function () {
+        jq("#dialog-form").data('inputId', 'startPoint').dialog("open");
+    });
+
+    jq("#arrListPlaces").button().click(function () {
+        jq("#dialog-form").data('inputId', 'endPoint').dialog("open");
+    });
+
+    jq("#depHomePlace").button().click(function () {
+        jq("#dialog-form-my-places").data('inputId', 'startPoint').dialog("open");
+    });
+
+    jq("#arrHomePlace").button().click(function () {
+        jq("#dialog-form-my-places").data('inputId', 'endPoint').dialog("open");
+    });
+
+    jq("#dialog-form").dialog({
+        autoOpen: false,
+        height: 400,
+        width: 500,
+        modal: true,
+        buttons: {
+            "Επιλογή": function () {
+                var input = jq('#' + jq(this).data('inputId'));
+                if (selectedPopularPlace != null) {
+                    input.val(selectedPopularPlace);
+
+                    if (jq(this).data('inputId') == 'startPoint') {
+                        geocoder.geocode({ 'address': selectedPopularPlace}, function (results, status) {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                populateZKTextbox('startCoordsHolder', results[0].geometry.location + "|" + results[0].formatted_address);
+                            }
+                        });
+                    } else {
+                        geocoder.geocode({ 'address': selectedPopularPlace}, function (results, status) {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                populateZKTextbox('endCoordsHolder', results[0].geometry.location + "|" + results[0].formatted_address);
+                            }
+                        });
+                    }
+
+                    jq(this).dialog("close");
+                }
+            },
+            "Ακύρωση": function () {
+                selectedPopularPlace = null;
+                jq(this).dialog("close");
+            }
+        },
+        close: function () {
+            selectedPopularPlace = null;
+            jq('#selectable .ui-selected').removeClass('ui-selected');
+        }
+    });
+
+    jq("#selectable").selectable({
+        selected: function (event, ui) {
+            selectedPopularPlace = ui.selected.id;
+            jq(ui.selected).addClass("ui-selected").siblings().removeClass("ui-selected");
+        }
+    });
+
+    jq("#myPlacesSelectable").selectable({
+        selected: function (event, ui) {
+            selectedMyPlace = ui.selected.id;
+            jq(ui.selected).addClass("ui-selected").siblings().removeClass("ui-selected");
+        }
+    });
+
+
+    if (popularPlaces != null) {
+        for (var k = 0; k < popularPlaces.length; k++) {
+            jq("#selectable").append("<li id=\"" + popularPlaces[k][1] + "\" class=\"ui-widget-content\">" + popularPlaces[k][0] + "</li>");
+        }
+    }
+
+    if (myPlaces != null) {
+        for (k = 0; k < myPlaces.length; k++) {
+            jq("#myPlacesSelectable").append("<li id=\"" + myPlaces[k][1] + "\" class=\"ui-widget-content\">" + myPlaces[k][0] + "</li>");
+        }
+    }
+
+
+    if (loadedFromAddress != null) {
+        jq("#startPoint").val(loadedFromAddress);
+        geocoder.geocode({ 'address': loadedFromAddress}, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                populateZKTextbox('startCoordsHolder', results[0].geometry.location + "|" + results[0].formatted_address);
+            }
+        });
+    }
+
+
+    if (loadedToAddress != null) {
+        jq("#endPoint").val(loadedToAddress);
+        geocoder.geocode({ 'address': loadedToAddress}, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                populateZKTextbox('endCoordsHolder', results[0].geometry.location + "|" + results[0].formatted_address);
+            }
+        });
+    }
+
+}
+
+function autocompleteSelected(input, autocomplete) {
+    input.className = '';
+    var place = autocomplete.getPlace();
+    if (!place.geometry) {
+        // Inform the user that the place was not found and return.
+        input.className = 'notfound';
+        return;
+    }
+
+    var address = '';
+    if (place.address_components) {
+        address = [
+            (place.address_components[0] && place.address_components[0].short_name || ''),
+            (place.address_components[1] && place.address_components[1].short_name || ''),
+            (place.address_components[2] && place.address_components[2].short_name || '')
+        ].join(' ');
+    }
+    input.className = 'rounded_input';
+}
+
+
+function doAccept() {
+    var w = zk.Widget.$('$startCoordsHolder');
+    zAu.send(new zk.Event(w, 'onChanging', null, {toServer: true}));
+}
+
+function loadData(pop_places, my_places, fromVal, toVal) {
+    popularPlaces = pop_places;
+    myPlaces = my_places;
+    loadedFromAddress = fromVal;
+    loadedToAddress = toVal;
+}
+
+]]>
+</script>

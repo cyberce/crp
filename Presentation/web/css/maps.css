@@ -1,0 +1,174 @@
+#map-canvas {
+    position: absolute;
+    float: left;
+    width: 60%;
+    height: 500px;
+    padding: 0;
+    margin: 0;
+    -moz-box-shadow: 0px 0px 7px 0px #888;
+    -webkit-box-shadow: 0px 0px 7px 0px #888;
+    box-shadow: 0px 0px 7px 0px #888;
+}
+
+#results-map-canvas {
+    -moz-box-shadow: 0px 0px 7px 0px #888;
+    -webkit-box-shadow: 0px 0px 7px 0px #888;
+    box-shadow: 0px 0px 7px 0px #888;
+}
+
+#toolbox {
+    position: relative;
+    float: right;
+    width: 40%;
+    height: 500px;
+    padding: 0;
+    margin-right: -20px;
+}
+
+#content {
+    height: 500px;
+}
+
+#sortable {
+    background: none;
+    list-style-type: square;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#sortable li {
+    background: none;
+    margin-left: 17px;
+    padding: 5px;
+    font-size: 11px;
+    height: 15px;
+    border: 0;
+
+}
+
+#sortable li span {
+    background: none;
+    position: absolute;
+    margin-left: -1.3em;
+}
+
+input.notfound {
+    border: 2px solid rgba(255, 0, 0, 0.4);
+    height: 20px;
+    font-size: 14px;
+
+    /* css 3 */
+    border-radius: 5px;
+    /* mozilla */
+    -moz-border-radius: 5px;
+    /* webkit */
+    -webkit-border-radius: 5px;
+}
+
+input.rounded_input {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    height: 20px;
+    font-size: 14px;
+
+    /* css 3 */
+    border-radius: 5px;
+    /* mozilla */
+    -moz-border-radius: 5px;
+    /* webkit */
+    -webkit-border-radius: 5px;
+}
+
+.mapLabel {
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.stopHeader {
+    font-size: 11px;
+    padding: 3px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.deleteStop {
+    padding-left: 18px;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#feedback {
+    font-size: 1.4em;
+}
+
+#selectable .ui-selecting {
+    background: #FECA40;
+}
+
+#selectable .ui-selected {
+    background: #F39814;
+    color: white;
+}
+
+#selectable {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#selectable li {
+    margin: 3px;
+    padding: 0.4em;
+    font-size: 1.4em;
+    height: 18px;
+    cursor: pointer;
+}
+
+#designButton {
+    background-color: #17a2dc;
+    border: 1px solid #17a2dc;
+    height: 30px;
+    width: 100px;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+#resetButton {
+    background-color: #17a2dc;
+    border: 1px solid #17a2dc;
+    height: 30px;
+    width: 100px;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+#myPlacesSelectable .ui-selecting {
+    background: #FECA40;
+}
+
+#myPlacesSelectable .ui-selected {
+    background: #F39814;
+    color: white;
+}
+
+#myPlacesSelectable {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#myPlacesSelectable li {
+    margin: 3px;
+    padding: 0.4em;
+    font-size: 1.4em;
+    height: 18px;
+    cursor: pointer;
+}

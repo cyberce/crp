@@ -1,0 +1,95 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<window id="ratePopupWin"
+        border="normal"
+        width="730px"
+        mode="modal"
+        apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.teiath.web.vm.crp.RatePassengerVM')" xmlns:h="http://www.w3.org/1999/xhtml">
+
+	<script>
+		function doLoad() {
+		$('.rateit').rateit({
+		step: 1,
+		starwidth: 32,
+		starheight: 32
+		});
+
+		bindEvents();
+		}
+
+		function doEdit(val) {
+		$('.rateit').rateit({
+		step: 1,
+		starwidth: 32,
+		starheight: 32,
+		value: val
+		});
+
+		bindEvents();
+		}
+
+		function bindEvents() {
+		$('.rateit').bind('rated', function() {
+		var txtBox = zk.Widget.$('$rating');
+		txtBox.setValue($(this).rateit('value'));
+		txtBox.smartUpdate('value', $(this).rateit('value'));
+		});
+
+		$('.rateit').bind('reset', function() {
+		var txtBox = zk.Widget.$('$rating');
+		txtBox.setValue(0);
+		txtBox.smartUpdate('value', 0);
+		});
+		}
+	</script>
+
+	<style>
+		tr.z-row-over > td.z-row-inner {
+		border-bottom: 1px solid #FFFFFF;
+		border-top: 1px solid #FFFFFF;
+		}
+
+		tr.z-row-over > td.z-row-inner, tr.z-row-over > .z-cell {
+		background-image: none;
+		}
+	</style>
+	<div form="@id('fx') @save(vm.selectedRouteAssessment, before='onSave')  " sclass="detail">
+		<div align="left" width="99%">
+
+			<grid oddRowSclass="non-odd" style="border: 0">
+				<columns>
+					<column width="25%" />
+					<column width="75%" />
+				</columns>
+				<rows>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayNormal" value="${labels.common.action.rate}*:" />
+						<h:div class="rateit bigstars"></h:div>
+						<intbox value="0" id="rating" visible="false">
+							<custom-attributes org.zkoss.zk.ui.updateByClient="true" />
+						</intbox>
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<separator height="20px" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayNormal" value="${labels.route.comments}*:" />
+						<textbox id="comment" rows="1" multiline="true" maxlength="300" width="400px"
+						         tabindex="3" mold="rounded" value="@bind(vm.selectedRouteAssessment.comment)" />
+					</row>
+				</rows>
+			</grid>
+			<separator height="20px" />
+			<hbox width="100%" widths="@load(not empty fx.id? '50%, 50%': '50%, 50%')">
+				<div width="100%" style="text-align: right">
+					<toolbarbutton image="/img/submit.png" onClick="@command('onSave')" />
+					<toolbarbutton image="/img/cancel.png" onClick="@command('onCancel')" />
+				</div>
+			</hbox>
+			<separator height="20px" />
+		</div>
+	</div>
+	<style src="/js/rateit/rateit.css" />
+	<style src="/js/rateit/bigstars.css" />
+	<script src="/js/rateit/jquery.rateit.js"></script>
+</window>

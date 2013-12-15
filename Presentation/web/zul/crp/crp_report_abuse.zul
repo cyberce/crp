@@ -1,0 +1,91 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/zul/templates/main_template.zul"?>
+<?page viewport="width=device-width, initial-scale=0.5, user-scalable=yes"?>
+<?page title="${labels.template.title}"?>
+<?link rel="shortcut icon" type="image/x-icon" href="/img/logo.png"?>
+<?link rel="icon" type="image/x-icon" href="/img/logo.png"?>
+<?root-attributes lang="en"xml:lang="en"?>
+<window xmlns="http://www.zkoss.org/2005/zul"
+        self="@define(detail)"
+        border="none"
+        width="1200px"
+        apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.teiath.web.vm.crp.ReportAbuseVM')">
+
+	<style>
+		tr.z-row-over > td.z-row-inner {
+		border-bottom: 1px solid #FFFFFF;
+		border-top: 1px solid #FFFFFF;
+		}
+
+		tr.z-row-over > td.z-row-inner, tr.z-row-over > .z-cell {
+		background-image: none;
+		}
+	</style>
+	<div form="@id('fx') @save(vm.routeAbuseReport, before='onSave')"
+	     sclass="detail">
+		<div align="left" width="95%">
+			<hbox width="100%" widths="@load(not empty fx.id? '50%, 50%': '50%, 50%')">
+				<label sclass="headerText" value="${labels.route.reportAbuse}" />
+				<div width="100%" style="text-align: right">
+					<toolbarbutton image="/img/submit.png" onClick="@command('onSave')" />
+					<toolbarbutton image="/img/cancel.png" onClick="@command('onCancel')" />
+				</div>
+			</hbox>
+			<separator height="20px" />
+			<label value="${labels.reservation.route}" />
+			<label value="@load(vm.route.startingPoint)" />
+			<label value="-" />
+			<label value="@load(vm.route.destinationPoint)" />
+			<separator height="10px" />
+			<label value="${labels.reservation.date}" />
+			<label value="@load(vm.route.routeDate) @converter('formatedDate', format='dd/MM/yyyy')" />
+			<separator height="10px" />
+			<label value="${labels.reservation.time}" />
+			<label value="@load(vm.route.routeTime) @converter('formatedDate', format='KK:mm')" />
+			<separator height="20px" />
+			<grid oddRowSclass="non-odd" style="border: 0">
+				<columns>
+					<column width="20%" />
+					<column width="80%" />
+				</columns>
+				<rows>
+					<row sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayNormal"
+						       value="${labels.abuse.reportedUser}:" />
+						<vbox>
+							<label value="@load(vm.route.user.fullName)" id="driverLabel" />
+							<hbox id="userListBox">
+								<combobox id="selectedUserCombo" readonly="true" model="@load(vm.routeInterets)"
+								          selectedItem="@bind(vm.selectedRouteInterest)"
+								          width="99%" tabindex="2">
+									<template name="model" var="item">
+										<comboitem label="@load(item.user.fullName)" />
+									</template>
+								</combobox>
+							</hbox>
+						</vbox>
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<separator height="20px" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayNormal" value="${labels.common.title}*:" />
+						<textbox id="title" maxlength="300" width="200px"
+						         tabindex="3" mold="rounded" value="@bind(fx.title)"
+						         constraint="no empty: Το πεδίο θα πρέπει να συμπληρωθεί υποχρεωτικά"
+								/>
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayNormal" value="${labels.common.description}*:" />
+						<textbox id="description" rows="8" multiline="true" maxlength="4000" width="500px"
+						         tabindex="3" mold="rounded" value="@bind(fx.description)"
+						         constraint="no empty: Το πεδίο θα πρέπει να συμπληρωθεί υποχρεωτικά"
+								/>
+					</row>
+				</rows>
+			</grid>
+		</div>
+	</div>
+
+</window>

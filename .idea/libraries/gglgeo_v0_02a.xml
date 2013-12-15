@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="gglgeo_v0.02a">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/gglgeo_v0.02a.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

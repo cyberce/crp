@@ -1,0 +1,123 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/zul/templates/main_template.zul"?>
+<?page title="${labels.template.title}"?>
+<?link rel="shortcut icon" type="image/x-icon" href="/img/logo.png"?>
+<?link rel="icon" type="image/x-icon" href="/img/logo.png"?>
+<?root-attributes lang="en"xml:lang="en"?>
+<?page viewport="width=device-width, initial-scale=0.5, user-scalable=yes"?>
+<window xmlns="http://www.zkoss.org/2005/zul"
+        self="@define(detail)"
+        border="none"
+        width="1200px"
+        apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.teiath.web.vm.ListRouteAbuseReportVM')">
+
+	<zscript><![CDATA[
+
+      import java.util.Comparator;
+      import org.teiath.web.comparator.ListboxEmptyComparator;
+
+      Comparator comparator = new ListboxEmptyComparator();
+  ]]></zscript>
+
+	<div sclass="detail">
+		<div align="left" width="95%">
+			<hbox width="100%" widths="5%, 95%">
+
+				<label sclass="headerText" value="${labels.abuse.reports}" />
+			</hbox>
+			<separator height="10px" />
+			<groupbox form="@id('fx') @save(vm.routeAbuseReportSearchCriteria, before={'onSearch', 'onResetSearch'} )"
+			          id="gb3" mold="3d" width="100%" open="false">
+				<attribute name="onOpen">
+					<![CDATA[
+                      import org.zkoss.util.resource.Labels;
+
+                      searchHeader.value = self.isOpen()? Labels.getLabel("search.title_hide") : Labels.getLabel("search.title_show");
+                      searchCaption.label = self.isOpen()? Labels.getLabel("search.criteria") : Labels.getLabel("search.click_here");
+                  ]]>
+				</attribute>
+				<caption id="searchCaption" label="${labels.search.click_here}"></caption>
+				<separator height="10px" />
+				<hbox width="100%" widths="23%,23%,23%">
+					<div>
+						<label sclass="labelNSGrayNormal" value="${labels.abuse.date}" />
+						<separator height="5px" />
+						<div>
+							<label sclass="labelNSGrayNormal" value="${labels.route.dateFrom}:" />
+							<separator height="5px" />
+							<datebox id="dateFrom" constraint="no empty: Το πεδίο δεν μπορεί να παραμείνει κενό"
+							         cols="12" format="short " mold="rounded"
+							         value="@bind(vm.routeAbuseReportSearchCriteria.dateFrom)" />
+						</div>
+						<div>
+							<label sclass="labelNSGrayNormal" value="${labels.route.dateTo}:" />
+							<separator height="5px" />
+							<datebox id="dateTo" constraint="no empty: Το πεδίο δεν μπορεί να παραμείνει κενό" cols="12"
+							         format="short " mold="rounded"
+							         value="@bind(vm.routeAbuseReportSearchCriteria.dateTo)" />
+						</div>
+					</div>
+				</hbox>
+
+				<separator height="10px" />
+				<hbox width="100%" widths="40%,50%,10%">
+					<div></div>
+					<div>
+						<toolbarbutton image="/img/search.png"
+						               onClick="@command('onSearch')" />
+						<space width="20px" />
+						<toolbarbutton image="/img/reset.png"
+						               onClick="@command('onResetSearch')" />
+					</div>
+					<div></div>
+				</hbox>
+			</groupbox>
+			<separator height="20px" />
+			<div align="right">
+				<hbox>
+					<toolbarbutton id="viewButton" image="/img/view.png" onClick="@command('onView')"
+					               disabled="@load(empty vm.selectedRouteAbuseReport)" />
+					<toolbarbutton
+							image="@load(vm.selectedRouteAbuseReport.reportedUser.banned? '/img/restore_reportedUser.png': '/img/blackList_reportedUser.png')"
+							onClick="@command('onToggleBan')"
+							disabled="@load(empty vm.selectedRouteAbuseReport)" />
+				</hbox>
+			</div>
+			<listbox model="@load(vm.reportsList)" paginal="@{paging}"
+			         selectedItem="@bind(vm.selectedRouteAbuseReport)" width="100%"
+			         context="contextPopup">
+				<listhead>
+					<listheader id="reportDate" label="${labels.abuse.date}" width="25%"
+					            sortAscending="${comparator}"
+					            sortDescending="${comparator}" onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="title" label="${labels.common.title}" width="25%"
+					            sortAscending="${comparator}"
+					            sortDescending="${comparator}" onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="reporterUser" label="${labels.abuse.reporter}" width="25%"
+					            sortAscending="${comparator}"
+					            sortDescending="${comparator}" onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="reportedUser" label="${labels.abuse.reported}" width="25%"
+					            sortAscending="${comparator}"
+					            sortDescending="${comparator}" onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+
+				</listhead>
+				<template name="model" var="item">
+					<listitem>
+						<listcell label="@load(item.reportDate) @converter('formatedDate', format='dd/MM/yyyy')"
+						          style="text-align: center;" />
+						<listcell label="@load(item.title)" />
+						<listcell label="@load(item.reporterUser.fullName)" />
+						<listcell label="@load(item.reportedUser.fullName)" />
+					</listitem>
+				</template>
+			</listbox>
+			<label id="empty" value="${labels.abuse.noReports}" visible="false"></label>
+			<paging id="paging" mold="os" pageSize="10" detailed="true" onPaging="@command('onPaging')" />
+		</div>
+	</div>
+</window>

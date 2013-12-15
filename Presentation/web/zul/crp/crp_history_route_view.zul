@@ -1,0 +1,227 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/zul/templates/main_template.zul"?>
+<?page title="${labels.template.title}"?>
+<?link rel="shortcut icon" type="image/x-icon" href="/img/logo.png"?>
+<?link rel="icon" type="image/x-icon" href="/img/logo.png"?>
+<?root-attributes lang="en"xml:lang="en"?>
+<?page viewport="width=device-width, initial-scale=0.5, user-scalable=yes"?>
+<window xmlns="http://www.zkoss.org/2005/zul" xmlns:h="http://www.w3.org/1999/xhtml"
+        self="@define(detail)"
+        border="none"
+        width="1200px"
+        apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.teiath.web.vm.crp.ViewHistoryRouteVM')"
+		>
+
+	<zscript><![CDATA[
+
+      import java.util.Comparator;
+      import org.teiath.web.comparator.ListboxEmptyComparator;
+
+      Comparator comparator = new ListboxEmptyComparator();
+  ]]></zscript>
+
+	<style>
+		tr.z-row-over > td.z-row-inner {
+		border-bottom: 1px dotted #434E9E;
+		border-top: 1px dotted #434E9E;
+		}
+
+		tr.z-row-over > td.z-row-inner, tr.z-row-over > .z-cell {
+		background-image: none;
+		}
+	</style>
+	<script>
+		function doLoad(id, ownerval) {
+		$('#' + id).rateit({
+		step: 1,
+		starwidth: 16,
+		starheight: 16,
+		readonly: true,
+		value: ownerval
+		});
+		}
+	</script>
+	<script>
+		function doLoadDriver(id, ownerval) {
+		$('#' + id).rateit({
+		step: 1,
+		starwidth: 16,
+		starheight: 16,
+		readonly: true,
+		value: ownerval
+		});
+		}
+	</script>
+	<div sclass="detail">
+		<div align="left" width="95%">
+			<hbox width="100%" widths="50%, 50%">
+				<label sclass="headerText" value="${labels.route.view}" />
+				<div width="100%" style="text-align: right">
+					<toolbarbutton image="/img/back.png" onClick="@command('onBack')" />
+				</div>
+			</hbox>
+			<separator height="20px" />
+			<grid style="border: 0">
+				<columns>
+					<column width="20%" />
+					<column width="30%" />
+					<column width="20%" />
+					<column width="30%" />
+				</columns>
+				<rows>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.code}:" />
+						<label value="@load(vm.route.code)" sclass="labelNSBlackNormal" width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.date}:" />
+						<label value="@load(vm.route.routeDate) @converter('formatedDate', format='dd/MM/yyyy')"
+						       sclass="labelNSBlackNormal" width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold"
+						       value="${labels.route.time}:" />
+						<label value="@load(vm.route.routeTime) @converter('formatedDate', format='HH:mm')"
+						       sclass="labelNSBlackNormal" width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.startingPoint}:" />
+						<label value="@load(vm.route.startingPoint)" sclass="labelNSBlackNormal" width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.destinationPoint}:" />
+						<label sclass="labelNSBlackNormal" width="90%"
+						       value="@load(vm.route.destinationPoint)" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.vehicle}:" />
+						<label value="@load(vm.route.vehicle.fullName)" sclass="labelNSBlackNormal"
+						       width="90%" />
+					</row>
+					<row sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.vehicle.plateNumber}" />
+						<label value="@load(vm.route.vehicle.plateNumber)" sclass="labelNSBlackNormal" width="90%" />
+					</row>
+					<row sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayNormal" value="${labels.vehicle.type}:" />
+						<label id="vehicleTypeLabel" value="" sclass="labelNSBlackNormal" width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.driver}:" />
+						<label value="@load(vm.route.user.fullName)" sclass="labelNSBlackNormal"
+						       width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow" id="listBoxRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.routeInterest.passengers}:" />
+						<listbox model="@load(vm.reservationsList)"
+						         id="reservationsListbox" width="100%" context="contextPopup">
+							<listhead>
+								<listheader id="passengerLastname" label="${labels.reservation.passengerLastname}"
+								            width="50%"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+								<listheader id="passengerName" label="${labels.reservation.passengerName}"
+								            width="50%"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+							</listhead>
+							<template name="model" var="item">
+								<listitem>
+									<listcell label="${item.user.lastName}" style="text-align: center;" />
+									<listcell label="${item.user.firstName}" style="text-align: center;" />
+								</listitem>
+							</template>
+						</listbox>
+					</row>
+					<row spans="1, 3" sclass="viewRow" id="labelRow" visible="false">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.routeInterest.passengers}" />
+						<label value="${labels.reservation.noReservation}"></label>
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.smokingAllowed}:" />
+						<label id="smokingAllowedLabel" sclass="labelNSBlackNormal"
+						       width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.contributionAmount}:" />
+						<label value="@load(vm.route.priceWithCurrency)"
+						       sclass="labelNSBlackNormal" width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.driverComments}:" />
+						<label value="@load(vm.route.comment)" sclass="labelNSBlackNormal" width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.labels}:" />
+						<label value="@load(vm.route.tags)" sclass="labelNSBlackNormal" width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow" id="driverRatingsListBoxRow">
+						<label width="100%" sclass="labelNSGrayBold"
+						       value="${labels.route.driverRatings}" />
+						<listbox model="@load(vm.driverRatings)" id="driverRatingsListbox" width="100%"
+						         context="contextPopup">
+							<listhead>
+								<listheader label="${labels.reservation.rating}" width="30%"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+								<listheader label="${labels.reservation.commentDate}" width="40%"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+								<listheader label="${labels.route.passenger}" width="30%"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+							</listhead>
+							<template name="model" var="item">
+								<listitem>
+									<listcell>
+										<h:div id="${item.ratingId}" class="rateitowner"></h:div>
+									</listcell>
+									<listcell
+											label="@load(item.assessmentDate) @converter('formatedDate', format='dd/MM/yyyy')"
+											style="text-align: center;" />
+									<listcell label="${item.user.fullName}" style="text-align: center;" />
+								</listitem>
+							</template>
+						</listbox>
+					</row>
+					<row spans="1, 3" sclass="viewRow" id="driverRatingsLabelRow" visible="false">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.driverRatings}" />
+						<label value="${labels.route.noDriverRatings}"></label>
+					</row>
+					<row spans="1, 3" sclass="viewRow" id="passengersRatingsListBoxRow">
+						<label width="100%" sclass="labelNSGrayBold"
+						       value="${labels.route.passengerRatings}" />
+						<listbox model="@load(vm.passengerRatings)" id="passengerRatingsListbox" width="100%"
+						         context="contextPopup">
+							<listhead>
+								<listheader label="${labels.reservation.rating}" width="30%"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+								<listheader label="${labels.reservation.commentDate}" width="40%"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+								<listheader label="${labels.route.passenger}" width="30%"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+							</listhead>
+							<template name="model" var="item">
+								<listitem>
+									<listcell>
+										<h:div id="${item.ratingId}" class="rateitowner"></h:div>
+									</listcell>
+									<listcell
+											label="@load(item.assessmentDate) @converter('formatedDate', format='dd/MM/yyyy')"
+											style="text-align: center;" />
+									<listcell label="${item.assessedUser.fullName}" style="text-align: center;" />
+								</listitem>
+							</template>
+						</listbox>
+					</row>
+					<row spans="1, 3" sclass="viewRow" id="passengersRatingsLabelRow" visible="false">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.passengerRatings}" />
+						<label value="${labels.route.noPassengersRatings}"></label>
+					</row>
+					<row sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.labels}" />
+						<label value="@load(vm.route.tags)" sclass="labelNSBlackNormal" width="90%" />
+					</row>
+				</rows>
+			</grid>
+		</div>
+	</div>
+	<style src="/js/rateit/rateit.css" />
+	<script src="/js/rateit/jquery.rateit.js"></script>
+</window>

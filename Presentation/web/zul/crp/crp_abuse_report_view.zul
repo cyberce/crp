@@ -1,0 +1,133 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/zul/templates/main_template.zul"?>
+<?page title="${labels.template.title}"?>
+<?link rel="shortcut icon" type="image/x-icon" href="/img/logo.png"?>
+<?link rel="icon" type="image/x-icon" href="/img/logo.png"?>
+<?root-attributes lang="en"xml:lang="en"?>
+<?page viewport="width=device-width, initial-scale=0.5, user-scalable=yes"?>
+<window xmlns="http://www.zkoss.org/2005/zul"
+        self="@define(detail)"
+        border="none"
+        width="1200px"
+        apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.teiath.web.vm.crp.ViewRouteAbuseReportVM')">
+
+	<attribute name="onCreate">
+		Clients.evalJavaScript("doLoad();");
+	</attribute>
+
+	<style>
+		tr.z-row-over > td.z-row-inner {
+		border-bottom: 1px dotted #434E9E;
+		border-top: 1px dotted #434E9E;
+		}
+
+		tr.z-row-over > td.z-row-inner, tr.z-row-over > .z-cell {
+		background-image: none;
+		}
+	</style>
+	<div sclass="detail">
+		<div align="left" width="100%">
+			<hbox width="99%" widths="50%, 50%">
+				<label sclass="headerText" value="${labels.abuse.view}" />
+				<div width="100%" style="text-align: right">
+					<toolbarbutton image="/img/back.png" onClick="@command('onBack')" />
+					<toolbarbutton id="banButton" image="/img/blackList_reportedUser.png" onClick="@command('onBan')"
+					               disabled="true" />
+					<toolbarbutton id="restoreButton" image="/img/restore_reportedUser.png"
+					               onClick="@command('onRestore')" disabled="true" />
+				</div>
+			</hbox>
+			<separator height="20px" />
+			<separator height="20px" />
+			<label value="${labels.route.values}" style="padding-left: 10px; font-size: 20px;"
+			       width="90%" />
+			<separator height="20px" />
+			<grid width="100%" style="border: 0">
+				<columns>
+					<column width="20%" />
+					<column width="30%" />
+					<column width="20%" />
+					<column width="30%" />
+				</columns>
+				<rows>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.code}:" />
+						<label value="@load(vm.routeAbuseReport.routeCode)" sclass="labelNSBlackNormal"
+						       width="100%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.startingPoint}:" />
+						<label value="@load(vm.routeAbuseReport.startingPoint)"
+						       sclass="labelNSBlackNormal" width="100%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.destinationPoint}:" />
+						<label value="@load(vm.routeAbuseReport.destination)"
+						       sclass="labelNSBlackNormal" width="100%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.date}:" />
+						<label value="@load(vm.routeAbuseReport.routeDate) @converter('formatedDate', format='dd/MM/yyyy')"
+						       sclass="labelNSBlackNormal" width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.time}:" />
+						<label value="@load(vm.routeAbuseReport.routeTime) @converter('formatedDate', format='HH:mm')"
+						       sclass="labelNSBlackNormal" width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.route.vehicle}:" />
+						<label value="@load(vm.routeAbuseReport.vehicle)"
+						       sclass="labelNSBlackNormal" width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.vehicle.color}:" />
+						<label value="@load(vm.routeAbuseReport.vehicleColor)"
+						       sclass="labelNSBlackNormal" width="90%" />
+					</row>
+				</rows>
+			</grid>
+			<separator height="40px" />
+			<label value="Στοιχεία Καταγγελίας" style="padding-left: 10px; font-size: 20px;"
+			       width="90%" />
+			<separator height="30px" />
+			<grid width="100%" style="border: 0">
+				<columns>
+					<column width="20%" />
+					<column width="30%" />
+					<column width="20%" />
+					<column width="30%" />
+				</columns>
+				<rows>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.abuse.date}:" />
+						<label value="@load(vm.routeAbuseReport.reportDate) @converter('formatedDate', format='dd/MM/yyyy')"
+						       sclass="labelNSBlackNormal" width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.abuse.reporter}:" />
+						<label value="@load(vm.routeAbuseReport.reporterUser.fullName)" sclass="labelNSBlackNormal"
+						       width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.abuse.reported}:" />
+						<label value="@load(vm.routeAbuseReport.reportedUser.fullName)" sclass="labelNSBlackNormal"
+						       width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.common.title}:" />
+						<label value="@load(vm.routeAbuseReport.title)" sclass="labelNSBlackNormal" width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.common.description}:" />
+						<label value="@load(vm.routeAbuseReport.description)" sclass="labelNSBlackNormal"
+						       width="100%" />
+					</row>
+
+				</rows>
+			</grid>
+
+		</div>
+	</div>
+</window>

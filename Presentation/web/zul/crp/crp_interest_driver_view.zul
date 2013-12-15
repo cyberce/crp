@@ -1,0 +1,214 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/zul/templates/main_template.zul"?>
+<?page viewport="width=device-width, initial-scale=0.5, user-scalable=yes"?>
+<?page title="${labels.template.title}"?>
+<?link rel="shortcut icon" type="image/x-icon" href="/img/logo.png"?>
+<?link rel="icon" type="image/x-icon" href="/img/logo.png"?>
+<?root-attributes lang="en"xml:lang="en"?>
+<window xmlns="http://www.zkoss.org/2005/zul"
+        self="@define(detail)"
+        border="none"
+        width="1200px"
+        apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.teiath.web.vm.crp.ViewInterestDriverVM')"
+		>
+
+	<zscript><![CDATA[
+
+      import java.util.Comparator;
+      import org.teiath.web.comparator.ListboxEmptyComparator;
+
+      Comparator comparator = new ListboxEmptyComparator();
+  ]]></zscript>
+
+	<style>
+		tr.z-row-over > td.z-row-inner {
+		border-bottom: 1px dotted #434E9E;
+		border-top: 1px dotted #434E9E;
+		}
+
+		tr.z-row-over > td.z-row-inner, tr.z-row-over > .z-cell {
+		background-image: none;
+		}
+	</style>
+	<div sclass="detail">
+		<div align="left" width="95%">
+			<hbox width="100%" widths="50%, 50%">
+				<label sclass="headerText" value="${labels.routeInterest.view}" />
+				<div width="100%" style="text-align: right">
+					<toolbarbutton image="/img/back.png" onClick="@command('onBack')" />
+				</div>
+			</hbox>
+			<separator height="20px" />
+			<grid style="border: 0">
+				<columns>
+					<column width="20%" />
+					<column width="30%" />
+					<column width="20%" />
+					<column width="30%" />
+				</columns>
+				<rows>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.reservation.passengerPhoto}:" />
+						<image id="userPhoto" height="128px" width="128px" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold"
+						       value="Συνεπιβάτες" />
+						<listbox model="@load(vm.extraPassengers)" width="50%"
+						         context="contextPopup">
+							<listhead>
+								<listheader label="Ονοματεπώνυμο" width="100%"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+							</listhead>
+							<template name="model" var="item">
+								<listitem>
+									<listcell label="${item.name}" style="text-align: center;" />
+								</listitem>
+							</template>
+						</listbox>
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.user.email}:" />
+						<label value="@load(vm.routeInterest.user.email)" sclass="labelNSBlackNormal" width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.user.telephone}:" />
+						<label value="@load(vm.routeInterest.user.phoneNumber)" sclass="labelNSBlackNormal"
+						       width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.user.mobile}:" />
+						<label value="@load(vm.routeInterest.user.mobileNumber)" sclass="labelNSBlackNormal"
+						       width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.reservation.totalPassengers}:" />
+						<label sclass="labelNSBlackNormal" width="90%"
+						       value="@load(vm.routeInterest.numberOfPassengers)" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.reservation.description}:" />
+						<label value="@load(vm.routeInterest.routeDescription)" sclass="labelNSBlackNormal"
+						       width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.reservation.comments}:" />
+						<label value="@load(vm.routeInterest.comment)" sclass="labelNSBlackNormal" width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.reservation.passengerRating}:" />
+						<label value="@load(vm.routeInterest.user.averagePassengerRating)" sclass="labelNSBlackNormal"
+						       width="90%" />
+					</row>
+					<row spans="1, 3" sclass="viewRow" id="commentsListBoxRow">
+						<label width="100%" sclass="labelNSGrayBold"
+						       value="${labels.reservation.comments}" />
+						<listbox model="@load(vm.passengerComments)" id="passengerCommentsListbox" width="99%"
+						         context="contextPopup">
+							<listhead>
+								<listheader label="${labels.reservation.user}" width="30%"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+								<listheader label="${labels.reservation.comment}" width="30%"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+								<listheader label="${labels.reservation.commentDate}"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;"
+								            width="40%" />
+							</listhead>
+							<template name="model" var="item">
+								<listitem>
+									<listcell label="${item.user.fullName}" />
+									<listcell label="${item.comment}" />
+									<listcell
+											label="@load(item.assessmentDate) @converter('formatedDate', format='dd/MM/yyyy')"
+											style="text-align: center" />
+								</listitem>
+							</template>
+						</listbox>
+					</row>
+					<row spans="1, 3" sclass="viewRow" id="commentsLabelRow" visible="false">
+						<label width="100%" sclass="labelNSGrayBold" value="Σχόλια/Παρατηρήσεις συνεπιβατών" />
+						<label value="${labels.reservation.noCommnets}"></label>
+					</row>
+					<row spans="1, 3" sclass="viewRow" id="listBoxRow" visible="true">
+						<label width="95%" sclass="labelNSGrayBold" value="${labels.reservation.commonRoutes}" />
+						<listbox model="@load(vm.commonRoutes)" paginal="@{paging}" id="commonRoutesListbox" width="99%"
+						         context="contextPopup">
+							<listhead>
+								<listheader id="startingPoint" label="${labels.route.startingPoint}" width="25%"
+								            sortAscending="${comparator}"
+								            sortDescending="${comparator}" onSort="@command('onSort')"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;" />
+								<listheader id="destinationPoint" label="${labels.route.destinationPoint}"
+								            width="25%" sortAscending="${comparator}"
+								            sortDescending="${comparator}" onSort="@command('onSort')"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;" />
+								<listheader id="routeDate" label="${labels.route.date}" width="25%"
+								            sortAscending="${comparator}"
+								            sortDescending="${comparator}" onSort="@command('onSort')"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;" />
+								<listheader id="routeTime" label="${labels.route.time}" width="25%"
+								            sortAscending="${comparator}"
+								            sortDescending="${comparator}" onSort="@command('onSort')"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;" />
+								<listheader id="rating" label="${labels.reservation.passengerRating}" width="25%"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;" />
+							</listhead>
+							<template name="model" var="item">
+								<listitem>
+									<listcell label="${item.startingPoint}" />
+									<listcell label="${item.destinationPoint}" />
+									<listcell
+											label="@load(item.routeDate) @converter('formatedDate', format='dd/MM/yyyy')"
+											style="text-align: center" />
+									<listcell
+											label="@load(item.routeTime) @converter('formatedDate', format='KK:mm')"
+											style="text-align: center" />
+									<listcell label="${item.user.averagePassengerRating}" style="text-align: center" />
+								</listitem>
+							</template>
+						</listbox>
+					</row>
+					<row spans="1, 3" id="pagingRow" sclass="viewRow">
+						<label width="99%" sclass="labelNSGrayNormal" />
+						<paging width="99%" id="paging" mold="os" pageSize="2" detailed="true"
+						        onPaging="@command('onPaging')" />
+					</row>
+					<row spans="1, 3" sclass="viewRow" id="labelRow" visible="false">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.reservation.commonRoutes}" />
+						<label value="${labels.route.noRoutes}"></label>
+					</row>
+					<row spans="1, 3" sclass="viewRow" id="passengerRatingsListBoxRow">
+						<label width="100%" sclass="labelNSGrayBold"
+						       value="${labels.reservation.passengerOlderRatings}" />
+						<listbox model="@load(vm.passengerRatings)" id="passengerRatingsListbox" width="99%"
+						         context="contextPopup">
+							<listhead>
+								<listheader label="${labels.reservation.rating}" width="50%"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;" />
+								<listheader label="${labels.reservation.commentDate}" width="50%"
+								            style="background:#32312F;color:white;border-style:solid; text-align: center;" />
+							</listhead>
+							<template name="model" var="item">
+								<listitem>
+									<listcell style="text-align: center">
+										<label value="${item.rating}"/>
+										<label value=" - "/>
+										<label value="${item.comment}"/>
+									</listcell>
+									<listcell
+											label="@load(item.assessmentDate) @converter('formatedDate', format='dd/MM/yyyy')"
+											style="text-align: center" />
+								</listitem>
+							</template>
+						</listbox>
+					</row>
+					<row spans="1, 3" sclass="viewRow" id="passengerRatingslabelRow" visible="false">
+						<label width="100%" sclass="labelNSGrayBold" value="${labels.reservation.commonRoutes}" />
+						<label value="${labels.reservation.noRatings}"></label>
+					</row>
+				</rows>
+			</grid>
+		</div>
+	</div>
+</window>

@@ -1,0 +1,100 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?page viewport="width=device-width, initial-scale=0.5, user-scalable=yes"?>
+<?page title="${labels.template.title}"?>
+<?link rel="shortcut icon" type="image/x-icon" href="/img/logo.png"?>
+<?link rel="icon" type="image/x-icon" href="/img/logo.png"?>
+<?root-attributes lang="en"xml:lang="en"?>
+<window xmlns="http://www.zkoss.org/2005/zul"
+        self="@define(detail)"
+        border="normal"
+        position="center"
+        width="800px"
+        height="400px"
+        mode="modal"
+        id="routeInquiryWin"
+        apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.teiath.web.vm.crp.CreateRouteInterestVM')"
+        validationMessages="@id('vmsgs')">
+
+	<style>
+		tr.z-row-over > td.z-row-inner {
+		border-bottom: 1px solid #FFFFFF;
+		border-top: 1px solid #FFFFFF;
+		}
+
+		tr.z-row-over > td.z-row-inner, tr.z-row-over > .z-cell {
+		background-image: none;
+		}
+	</style>
+	<div form="@id('fx') @load(vm.routeInterest) @save(vm.routeInterest, before='onSubmit')" sclass="detail">
+		<div align="left" width="95%">
+			<hbox width="100%" widths="50%, 50%">
+				<label sclass="headerText" value="${labels.reservation.create}" />
+				<div width="100%" style="text-align: right">
+					<toolbarbutton image="/img/submit.png" onClick="@command('onSubmit')" />
+					<toolbarbutton image="/img/cancel.png" onClick="@command('onCancel')" />
+				</div>
+			</hbox>
+			<separator height="20px" />
+			<grid oddRowSclass="non-odd" style="border: 0">
+				<columns>
+					<column width="20%" />
+					<column width="30%" />
+					<column width="20%" />
+					<column width="30%" />
+				</columns>
+				<rows>
+					<row spans="2, 4" sclass="viewRow">
+						<vbox>
+							<label value="Όνομα συνεπιβάτη:" />
+							<textbox id="extraPassengerNameBox" maxlength="200" width="200px"
+							         tabindex="1" mold="rounded" />
+							<toolbarbutton image="/img/addElement.png"
+							               onClick="@command('addExtraPassenger')" />
+							<toolbarbutton id="removeBtn" image="/img/delete.png"
+							               onClick="@command('removeExtraPassenger')" disabled="@load(empty vm.selectedPassenger)"/>
+						</vbox>
+						<listbox id="desiredGoodsBox" model="@load(vm.extraPassengers)"
+						         width="300px"
+						         selectedItem="@bind(vm.selectedPassenger)">
+							<listhead>
+								<listheader label="Συνεπιβάτες"></listheader>
+							</listhead>
+							<template name="model">
+								<listitem>
+									<listcell label="${each.name }" />
+								</listitem>
+							</template>
+						</listbox>
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayNormal" value="${labels.route.objectAllowed}:" />
+						<vbox>
+							<label multiline="true" width="100%" sclass="labelMandatory"
+							       value="@load(vmsgs['fx_lastName'])" />
+							<radiogroup width="100%" id="itemTransRG"
+							            selectedItem="@bind(fx.objectTransportRequired) @converter('org.teiath.web.converter.RadiogroupBooleanConverter')">
+								<radio value="true" label="${labels.common.yes}" radiogroup="itemTransRG"
+								       tabindex="1" />
+								<radio value="false" label="${labels.common.no}" radiogroup="itemTransRG"
+								       tabindex="2" />
+							</radiogroup>
+						</vbox>
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayNormal" value="${labels.route.description} :" />
+						<textbox id="descriptionTextbos" rows="1" multiline="true" maxlength="2000" width="400px"
+						         tabindex="1" mold="rounded"
+						         value="@bind(fx.routeDescription)" />
+					</row>
+					<row spans="1, 3" sclass="viewRow">
+						<label width="100%" sclass="labelNSGrayNormal" value="${labels.route.comments}:" />
+						<textbox id="comment" rows="1" multiline="true" maxlength="2000" width="400px"
+						         tabindex="1" mold="rounded" value="@bind(fx.comment)" />
+					</row>
+				</rows>
+			</grid>
+		</div>
+	</div>
+
+</window>

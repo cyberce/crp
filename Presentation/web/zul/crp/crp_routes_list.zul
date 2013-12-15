@@ -1,0 +1,188 @@
+<?page viewport="width=device-width, initial-scale=0.5, user-scalable=yes"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/zul/templates/main_template.zul"?>
+<?page title="${labels.template.title}"?>
+<?root-attributes lang="en"xml:lang="en"?>
+<?link rel="shortcut icon" type="image/x-icon" href="/img/logo.png"?>
+<?link rel="icon" type="image/x-icon" href="/img/logo.png"?>
+<?root-attributes lang="en"xml:lang="en"?>
+<window xmlns="http://www.zkoss.org/2005/zul"
+        self="@define(detail)"
+        border="none"
+        width="1200px"
+        apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.teiath.web.vm.crp.ListRoutesVM')">
+
+	<zscript><![CDATA[
+
+      import java.util.Comparator;
+      import org.teiath.web.comparator.ListboxEmptyComparator;
+
+      Comparator comparator = new ListboxEmptyComparator();
+  ]]></zscript>
+	<?page viewport="width=device-width, initial-scale=0.5, user-scalable=yes"?>
+	<div sclass="detail">
+		<div width="99%">
+			<hbox width="100%" widths="5%, 95%">
+
+				<label sclass="headerText" value="${labels.route.$}" />
+			</hbox>
+			<separator height="10px" />
+			<groupbox id="gb3" mold="3d" width="100%" open="false">
+				<attribute name="onOpen">
+					<![CDATA[
+                      import org.zkoss.util.resource.Labels;
+
+                      searchHeader.value = self.isOpen()? Labels.getLabel("search.title_hide") : Labels.getLabel("search.title_show");
+                      searchCaption.label = self.isOpen()? Labels.getLabel("search.criteria") : Labels.getLabel("search.click_here");
+                  ]]>
+				</attribute>
+				<caption id="searchCaption" label="${labels.search.click_here}"></caption>
+				<separator height="10px" />
+				<hbox width="100%" widths="30%,30%,40%">
+
+					<div>
+						<label sclass="labelNSGrayNormal" value="${labels.route.recurring}" />
+						<separator height="3px" />
+						<div>
+							<radiogroup width="100%" id="recurringRG"
+							            selectedItem="@bind(vm.routeSearchCriteria.recurring) @converter('org.teiath.web.converter.RadiogroupIntegerConverter')">
+								<radio value="0" label="${labels.common.yes}" radiogroup="recurringRG" tabindex="1" />
+								<radio value="1" label="${labels.common.no}" radiogroup="recurringRG" tabindex="2" />
+								<radio value="-1" label="${labels.common.not_specified}" radiogroup="recurringRG"
+								       selected="true" tabindex="3" />
+							</radiogroup>
+						</div>
+						<separator height="20px" />
+						<label sclass="labelNSGrayNormal" value="${labels.route.status}" />
+						<separator height="3px" />
+						<div>
+							<radiogroup width="100%" id="statusRG"
+							            selectedItem="@bind(vm.routeSearchCriteria.status) @converter('org.teiath.web.converter.RadiogroupIntegerConverter')">
+								<radio value="0" label="${labels.route.pending}" radiogroup="statusRG" tabindex="4" />
+								<radio value="1" label="${labels.route.in_progress}" radiogroup="statusRG"
+								       tabindex="5" />
+								<radio value="-1" label="${labels.common.all}" radiogroup="statusRG"
+								       selected="true" tabindex="6" />
+							</radiogroup>
+						</div>
+					</div>
+
+					<div>
+						<label sclass="labelNSGrayNormal" value="${labels.route.vehicle}" />
+						<separator height="3px" />
+						<combobox model="@load(vm.vehiclesList)" selectedItem="@bind(vm.selectedVehicle)">
+							<template name="model" var="item">
+								<comboitem label="@load(item.fullName)" />
+							</template>
+						</combobox>
+					</div>
+
+					<div>
+						<label sclass="labelNSGrayNormal" value="${labels.route.code}:" />
+						<separator height="3px" />
+						<textbox width="99%" tabindex="1" value="@bind(vm.routeSearchCriteria.code)" />
+						<separator height="20px" />
+						<hbox>
+							<label value="${labels.common.paging}:" />
+							<intbox value="@bind(vm.paging.pageSize)" />
+						</hbox>
+					</div>
+
+				</hbox>
+				<separator height="20px" />
+				<separator height="10px" />
+				<hbox width="100%" widths="40%,50%,10%">
+					<div></div>
+					<div>
+						<toolbarbutton image="/img/search.png"
+						               onClick="@command('onSearch')" />
+						<space width="20px" />
+						<toolbarbutton image="/img/reset.png"
+						               onClick="@command('onResetSearch')" />
+					</div>
+					<div></div>
+				</hbox>
+			</groupbox>
+			<separator height="20px" />
+			<div align="right">
+				<hbox>
+					<toolbarbutton id="createButton" image="/img/add.png"
+					               onClick="@command('onCreate')" />
+					<toolbarbutton id="editButton" image="/img/edit.png" onClick="@command('onEdit')"
+					               disabled="@load(empty vm.selectedRoute)" />
+					<toolbarbutton id="viewButton" image="/img/view.png" onClick="@command('onView')"
+					               disabled="@load(empty vm.selectedRoute)" />
+					<toolbarbutton id="deleteButton" image="/img/delete.png"
+					               onClick="@command('onDelete')" disabled="@load(empty vm.selectedRoute)" />
+					<toolbarbutton id="reservationsButton" image="/img/reservations.png"
+					               onClick="@command('onReservations')" disabled="@load(empty vm.selectedRoute)" />
+					<toolbarbutton id="interestsButton"
+					               image="@load(vm.selectedRoute.totalSeats eq vm.selectedRoute.reservations? '/img/pending_interests.png': '/img/interests.png')"
+					               onClick="@command('onInterests')" disabled="@load(empty vm.selectedRoute)" />
+					<toolbarbutton id="shareButton" image="/img/fbshare.png"
+					               onClick="@command('facebookShare')" disabled="@load(empty vm.selectedRoute)" />
+					<toolbarbutton image="/img/print.png"
+					               onClick="@command('onPrintPDF')" />
+				</hbox>
+			</div>
+			<listbox model="@load(vm.routesList)" paginal="@{paging}" selectedItem="@bind(vm.selectedRoute)"
+			         id="routesListbox" width="100%" context="contextPopup" onSelect="@command('onSelectRoute')">
+				<listhead>
+					<listheader id="code" label="${labels.route.code}" width="30%"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="routeDate" label="${labels.route.date}" width="15%" sortAscending="${comparator}"
+					            sortDescending="${comparator}" onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="routeTime" label="${labels.route.time}" width="13%" sortAscending="${comparator}"
+					            sortDescending="${comparator}" onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="recurring" label="${labels.route.isRecurring}" width="25%"
+					            sortAscending="${comparator}" sortDescending="${comparator}"
+					            onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="startingPoint" label="${labels.route.startingPoint}" width="20%"
+					            sortAscending="${comparator}" sortDescending="${comparator}"
+					            onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="destinationPoint" label="${labels.route.destinationPoint}" width="20%"
+					            sortAscending="${comparator}" sortDescending="${comparator}"
+					            onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="vehicle" label="${labels.route.vehicle}" width="15%" sortAscending="${comparator}"
+					            sortDescending="${comparator}" onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="totalSeats" label="${labels.route.totalSeats}" width="20%"
+					            sortAscending="${comparator}" sortDescending="${comparator}"
+					            onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="reservations" label="${labels.route.reservedSeats}" width="20%"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="interests" label="${labels.route.inquiries}" width="25%"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+				</listhead>
+				<template name="model" var="item">
+					<listitem>
+						<listcell label="@load(item.code)" style="text-align: center" />
+						<listcell label="@load(item.routeDate) @converter('formatedDate', format='dd/MM/yyyy')"
+						          style="text-align: center" />
+						<listcell label="@load(item.routeTime) @converter('formatedDate', format='HH:mm')"
+						          style="text-align: center" />
+						<listcell label="${labels.common.yes}" if="${item.recurring}" style="text-align: center" />
+						<listcell label="${labels.common.no}" if="${!item.recurring}" style="text-align: center" />
+						<listcell label="@load(item.startingPoint)" style="text-align: left" />
+						<listcell label="@load(item.destinationPoint)" style="text-align: left" />
+						<listcell label="@load(item.vehicle.fullName)" style="text-align: left" />
+						<listcell label="@load(item.totalSeats)" style="text-align: center" />
+						<listcell label="@load(item.reservations)" onClick="@command('onReservations')"
+						          style="text-align: center; color:blue; CURSOR: pointer; TEXT-DECORATION: underline;" />
+						<listcell label="@load(item.interests)" onClick="@command('onInterests')"
+						          style="text-align: center; color:blue; CURSOR: pointer; TEXT-DECORATION: underline;" />
+					</listitem>
+				</template>
+			</listbox>
+			<label id="empty" value="${labels.route.noRoutes}" visible="false"></label>
+			<paging id="paging" mold="os" detailed="true" onPaging="@command('onPaging')" />
+		</div>
+	</div>
+</window>

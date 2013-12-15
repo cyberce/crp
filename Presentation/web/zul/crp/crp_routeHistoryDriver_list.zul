@@ -1,0 +1,143 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/zul/templates/main_template.zul"?>
+<?page viewport="width=device-width, initial-scale=0.5, user-scalable=yes"?>
+<?page title="${labels.template.title}"?>
+<?link rel="shortcut icon" type="image/x-icon" href="/img/logo.png"?>
+<?link rel="icon" type="image/x-icon" href="/img/logo.png"?>
+<?root-attributes lang="en"xml:lang="en"?>
+<window xmlns="http://www.zkoss.org/2005/zul"
+        self="@define(detail)"
+        border="none"
+        width="1200px"
+        apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.teiath.web.vm.crp.ListRouteHistoryDriverVM')">
+
+	<zscript><![CDATA[
+
+      import java.util.Comparator;
+      import org.teiath.web.comparator.ListboxEmptyComparator;
+
+      Comparator comparator = new ListboxEmptyComparator();
+  ]]></zscript>
+
+	<div sclass="detail">
+		<div align="left" width="95%">
+			<hbox width="100%" widths="5%, 95%">
+
+				<label sclass="headerText" value="${labels.route.historyDriver}" />
+			</hbox>
+			<separator height="10px" />
+			<groupbox id="gb3" mold="3d" width="100%" open="false">
+				<attribute name="onOpen">
+					<![CDATA[
+                      import org.zkoss.util.resource.Labels;
+
+                      searchHeader.value = self.isOpen()? Labels.getLabel("search.title_hide") : Labels.getLabel("search.title_show");
+                      searchCaption.label = self.isOpen()? Labels.getLabel("search.criteria") : Labels.getLabel("search.click_here");
+                  ]]>
+				</attribute>
+				<caption id="searchCaption" label="${labels.search.click_here}"></caption>
+				<separator height="10px" />
+				<hbox form="@id('fx') @save(vm.routeSearchCriteria, before='onSearch')" width="100%"
+				      widths="30%,30%,40%">
+
+					<div>
+						<label sclass="labelNSGrayNormal" value="${labels.common.date}" />
+						<separator height="5px" />
+						<div>
+							<label sclass="labelNSGrayNormal" value="${labels.route.dateFrom}:" />
+							<datebox id="dateFrom" cols="12" format="short " mold="rounded"
+							         value="@bind(vm.routeSearchCriteria.dateFrom)" />
+						</div>
+						<div>
+							<label sclass="labelNSGrayNormal" value="${labels.route.dateTo}:" />
+							<datebox id="dateTo" cols="12" format="short " mold="rounded"
+							         value="@bind(vm.routeSearchCriteria.dateTo)" />
+						</div>
+					</div>
+					<div>
+						<label sclass="labelNSGrayNormal" value="${labels.route.vehicle}" />
+						<separator height="3px" />
+						<combobox id="vehicleCombobox" model="@load(vm.vehiclesList)"
+						          selectedItem="@bind(vm.selectedVehicle)">
+							<template name="model" var="item">
+								<comboitem label="@load(item.fullName)" />
+							</template>
+						</combobox>
+					</div>
+					<div>
+						<label sclass="labelNSGrayNormal" value="${labels.route.code}:" />
+						<separator height="3px" />
+						<textbox width="99%" tabindex="1" value="@bind(vm.routeSearchCriteria.code)" />
+						<separator height="20px" />
+						<hbox>
+							<label value="${labels.common.paging}:" />
+							<intbox value="@bind(vm.paging.pageSize)" />
+						</hbox>
+					</div>
+				</hbox>
+				<separator height="10px" />
+				<hbox width="100%" widths="40%,50%,10%">
+					<div></div>
+					<div>
+						<toolbarbutton image="/img/search.png"
+						               onClick="@command('onSearch')" />
+						<space width="20px" />
+						<toolbarbutton image="/img/reset.png"
+						               onClick="@command('onResetSearch')" />
+					</div>
+					<div></div>
+				</hbox>
+			</groupbox>
+			<separator height="20px" />
+			<div align="right">
+				<hbox>
+					<toolbarbutton id="viewButton" image="/img/view.png" onClick="@command('onView')"
+					               disabled="@load(empty vm.selectedRoute)" />
+					<toolbarbutton id="rateButton" image="/img/rate.png" onClick="@command('onRate')"
+					               disabled="@load(empty vm.selectedRoute)" />
+					<toolbarbutton image="/img/report.png" onClick="@command('onReportAbuse')"
+					               disabled="@load(empty vm.selectedRoute)" />
+					<toolbarbutton image="/img/print.png"
+					               onClick="@command('onPrintPDF')" />
+				</hbox>
+			</div>
+			<listbox model="@load(vm.routeList)" paginal="@{paging}"
+			         selectedItem="@bind(vm.selectedRoute)"
+			         id="routesListbox" width="100%" context="contextPopup">
+				<listhead>
+					<listheader id="routeDate" label="${labels.route.date}" width="20%" sortAscending="${comparator}"
+					            sortDescending="${comparator}" onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="routeTime" label="${labels.route.time}" width="20%" sortAscending="${comparator}"
+					            sortDescending="${comparator}" onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="startingPoint" label="${labels.route.startingPoint}" width="20%"
+					            sortAscending="${comparator}" sortDescending="${comparator}"
+					            onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="destinationPoint" label="${labels.route.destinationPoint}" width="20%"
+					            sortAscending="${comparator}" sortDescending="${comparator}"
+					            onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="vehicle" label="${labels.route.vehicle}" width="20%" sortAscending="${comparator}"
+					            sortDescending="${comparator}" onSort="@command('onSort')"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+				</listhead>
+				<template name="model" var="item">
+					<listitem>
+						<listcell label="@load(item.routeDate) @converter('formatedDate', format='dd/MM/yyyy')"
+						          style="text-align: center;" />
+						<listcell label="@load(item.routeTime) @converter('formatedDate', format='HH:mm')"
+						          style="text-align: center;" />
+						<listcell label="@load(item.startingPoint)" />
+						<listcell label="@load(item.destinationPoint)" />
+						<listcell label="@load(item.vehicle.fullName)" />
+					</listitem>
+				</template>
+			</listbox>
+			<label id="empty" value="${labels.route.noRoutes}" visible="false"></label>
+			<paging id="paging" mold="os" detailed="true" onPaging="@command('onPaging')" />
+		</div>
+	</div>
+</window>

@@ -1,0 +1,110 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/zul/templates/main_template.zul"?>
+<?page viewport="width=device-width, initial-scale=0.5, user-scalable=yes"?>
+<?page title="${labels.template.title}"?>
+<?root-attributes lang="en"xml:lang="en"?>
+<?link rel="shortcut icon" type="image/x-icon" href="/img/logo.png"?>
+<?link rel="icon" type="image/x-icon" href="/img/logo.png"?>
+<?root-attributes lang="en"xml:lang="en"?>
+<window xmlns="http://www.zkoss.org/2005/zul" xmlns:h="http://www.w3.org/1999/xhtml"
+        self="@define(detail)"
+        border="none"
+        width="1200px"
+        apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.teiath.web.vm.crp.ListRouteInboxInterestsVM')">
+
+	<zscript><![CDATA[
+
+      import java.util.Comparator;
+      import org.teiath.web.comparator.ListboxEmptyComparator;
+
+      Comparator comparator = new ListboxEmptyComparator();
+  ]]></zscript>
+
+	<script>
+		function doLoad(ownerval) {
+		$('.rateitowner').rateit({
+		step: 1,
+		starwidth: 16,
+		starheight: 16,
+		readonly: true,
+		value: ownerval
+		});
+		}
+	</script>
+
+	<style>
+		tr.z-row-over > td.z-row-inner {
+		border-bottom: 1px dotted #434E9E;
+		border-top: 1px dotted #434E9E;
+		}
+
+		tr.z-row-over > td.z-row-inner, tr.z-row-over > .z-cell {
+		background-image: none;
+		}
+	</style>
+	<div sclass="detail">
+		<div align="left" width="95%">
+			<hbox width="100%" widths="50%, 50%">
+				<label sclass="headerText" value="${labels.routeInterest.inbox}" />
+			</hbox>
+			<separator height="20px" />
+			<div align="right">
+				<hbox>
+					<toolbarbutton id="viewButton" image="/img/view.png" onClick="@command('onView')"
+					               disabled="@load(empty vm.selectedRouteInterest)" />
+					<toolbarbutton id="acceptButton" image="/img/accept.png"
+					               onClick="@command('onAccept')" disabled="@load(empty vm.selectedRouteInterest)" />
+					<toolbarbutton id="rejectButton" image="/img/decline.png"
+					               onClick="@command('onReject')" disabled="@load(empty vm.selectedRouteInterest)" />
+					<toolbarbutton image="/img/print.png"
+					               onClick="@command('onPrintPDF')" />
+				</hbox>
+			</div>
+			<separator height="5px" />
+			<listbox model="@load(vm.routeInterestsList)" paginal="@{paging}"
+			         selectedItem="@bind(vm.selectedRouteInterest)"
+			         id="listingsListbox" width="100%" context="contextPopup">
+				<listhead>
+					<listheader id="interestDate" label="${labels.common.date}" width="20%"
+					            style="background:#32312F;color:white;border-style:solid;text-align: center;white-space: normal;"
+					            sortAscending="${comparator}"
+					            sortDescending="${comparator}" onSort="@command('onSort')" />
+					<listheader label="${labels.route.time}" width="20%"
+					            style="background:#32312F;color:white;border-style:solid;text-align: center;white-space: normal;" />
+					<listheader label="${labels.route.startingPoint}" width="20%"
+					            style="background:#32312F;color:white;border-style:solid;text-align: center;white-space: normal;" />
+					<listheader label="${labels.route.destinationPoint}" width="18%"
+					            style="background:#32312F;color:white;border-style:solid;text-align: center;white-space: normal;" />
+					<listheader label="${labels.reservation.passengerLastname}" width="22%"
+					            style="background:#32312F;color:white;border-style:solid;text-align: center;white-space: normal;"
+					            sortAscending="${comparator}"
+					            sortDescending="${comparator}" onSort="@command('onSort')" />
+					<listheader label="${labels.reservation.passengerName}" width="22%"
+					            style="background:#32312F;color:white;border-style:solid;text-align: center;white-space: normal;"
+					            sortAscending="${comparator}"
+					            sortDescending="${comparator}" onSort="@command('onSort')" />
+				</listhead>
+				<template name="model" var="item">
+					<listitem>
+						<listcell label="@load(item.route.routeDate) @converter('formatedDate', format='dd/MM/yyyy')"
+						          style="text-align: center" />
+						<listcell label="@load(item.route.routeTime) @converter('formatedDate', format='HH:mm')"
+						          style="text-align: center" />
+						<listcell label="@load(item.route.startingPoint)" style="text-align: left" />
+						<listcell label="@load(item.route.destinationPoint)" style="text-align: left" />
+						<listcell label="${item.user.lastName}" />
+						<listcell label="${item.user.firstName}" />
+						<listcell style="text-align: center">
+							<h:div class="rateitowner"></h:div>
+						</listcell>
+					</listitem>
+				</template>
+			</listbox>
+			<label id="empty" value="${labels.reservation.noInterest}" visible="false"></label>
+			<paging id="paging" mold="os" pageSize="10" detailed="true" onPaging="@command('onPaging')" />
+		</div>
+	</div>
+	<style src="/js/rateit/rateit.css" />
+	<script src="/js/rateit/jquery.rateit.js"></script>
+</window>

@@ -1,0 +1,35 @@
+<zk>
+	<session-config>
+		<device-type>ajax</device-type>
+		<timeout-message>Η συνεδρία σας έληξε. Παρακαλώ ανανεώστε τη σελίδα για να συνεχίσετε.</timeout-message>
+	</session-config>
+
+	<desktop-config>
+		<theme-uri>/css/template.css</theme-uri>
+	</desktop-config>
+
+	<library-property>
+		<name>org.zkoss.web.preferred.locale</name>
+		<value>el</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zul.theme.fontSizeM</name>
+		<value>11px</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zul.theme.fontSizeS</name>
+		<value>11px</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zul.theme.fontSizeXS</name>
+		<value>11px</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zul.theme.fontFamilyT</name>
+		<value>Verdana, Tahoma, Arial, serif</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zul.theme.fontFamilyC</name>
+		<value>Verdana, Tahoma, Arial, serif</value>
+	</library-property>
+</zk>

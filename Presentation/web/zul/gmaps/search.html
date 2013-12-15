@@ -1,0 +1,618 @@
+<script type="text/Javascript">
+<![CDATA[
+var searchMapFrom;
+var searchMapTo;
+var resultsMap;
+var mOptions;
+var drawingManagerFrom;
+var drawingManagerTo;
+var markerFrom;
+var markerTo;
+var infoWindow;
+var routesPathHash = new HashTable({});
+var routesColorHash = new HashTable({});
+var routesPointHash = new HashTable({});
+var routesAddressHash = new HashTable({});
+var routesDataHash = new HashTable({});
+var startInput;
+var endInput;
+var startAutocomplete;
+var endAutocomplete;
+var autocompleteOptions = {
+    componentRestrictions: {country: 'gr'}
+};
+var geocoder;
+var directionDisplays = [];
+var displayMarkers = [];
+var directionsService;
+var popularPlaces;
+var selectedPopularPlace;
+var myPlaces;
+var selectedMyPlace;
+
+
+
+// load the google api loader
+if (typeof(google) == 'undefined' || !google.load) {
+    jq.getScript('https://www.google.com/jsapi', function () {
+        loadMaps();
+    });
+}
+else {
+    // otherwise just load maps
+    loadMaps();
+}
+
+// load the google maps api
+function loadMaps() {
+    google.load("maps", "3", {
+        callback: initialize,
+        language: 'el',
+        other_params: 'sensor=false&libraries=drawing,geometry,places'
+    });
+}
+
+function initialize() {
+    geocoder = new google.maps.Geocoder();
+    directionsService = new google.maps.DirectionsService;
+
+    google.maps.visualRefresh = true;
+    jq('#results-map-canvas').hide();
+
+
+    mOptions = {
+        center: new google.maps.LatLng(38.0037082, 23.6776768),
+        zoom: 11,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeControl: false,
+        streetViewControl: false
+    };
+
+    infoWindow = new google.maps.InfoWindow({
+        content: ''
+    });
+
+    searchMapFrom = new google.maps.Map(jq('#search-map-canvas-from')[0], mOptions);
+    drawingManagerFrom = new google.maps.drawing.DrawingManager({
+        drawingMode: google.maps.drawing.OverlayType.MARKER,
+        drawingControl: false,
+        drawingControlOptions: {
+            position: google.maps.ControlPosition.TOP_CENTER,
+            drawingModes: [
+                google.maps.drawing.OverlayType.MARKER
+            ]
+        }
+    });
+    drawingManagerFrom.setMap(searchMapFrom);
+    google.maps.event.addListener(drawingManagerFrom, 'markercomplete', function (marker) {
+        if (markerFrom != null) {
+            markerFrom.setMap(null);
+        }
+        markerFrom = marker;
+    });
+
+    searchMapTo = new google.maps.Map(jq('#search-map-canvas-to')[0], mOptions);
+    drawingManagerTo = new google.maps.drawing.DrawingManager({
+        drawingMode: google.maps.drawing.OverlayType.MARKER,
+        drawingControl: false,
+        drawingControlOptions: {
+            position: google.maps.ControlPosition.TOP_CENTER,
+            drawingModes: [
+                google.maps.drawing.OverlayType.MARKER
+            ]
+        }
+    });
+    drawingManagerTo.setMap(searchMapTo);
+    google.maps.event.addListener(drawingManagerTo, 'markercomplete', function (marker) {
+        if (markerTo != null) {
+            markerTo.setMap(null);
+        }
+        markerTo = marker;
+    });
+
+    resultsMap = new google.maps.Map(document.getElementById("results-map-canvas"), mOptions);
+    google.maps.event.addListener(resultsMap, 'click', function () {
+        infoWindow.setContent('');
+        infoWindow.close();
+    });
+    google.maps.event.addListener(resultsMap, 'dragstart', function () {
+        infoWindow.setContent('');
+        infoWindow.close();
+    });
+
+    jq("#dialog-form-from").dialog({
+        autoOpen: false,
+        height: 500,
+        width: 600,
+        modal: true,
+        buttons: {
+            "Επιλογή": function () {
+                geocoder.geocode({'latLng': markerFrom.getPosition()}, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                            jq("#startPoint").val(results[0].formatted_address);
+                            populateZKTextbox('startCoordsHolder', results[0].geometry.location + "|" + results[0].formatted_address);
+	                        jq("#startPoint").css("border-color", "gray");
+                        } else {
+	                        jq("#startPoint").css("border-color", "red");
+                        }
+                    } else {
+	                    jq("#startPoint").css("border-color", "red");
+                    }
+                });
+                jq(this).dialog("close");
+            },
+            "Ακύρωση": function () {
+                jq(this).dialog("close");
+            }
+        },
+        open: function (event, ui) {
+            google.maps.event.trigger(searchMapFrom, 'resize');
+        },
+        close: function () {
+        }
+    });
+
+    jq("#dialog-form-to").dialog({
+        autoOpen: false,
+        height: 500,
+        width: 600,
+        modal: true,
+        buttons: {
+            "Επιλογή": function () {
+                geocoder.geocode({'latLng': markerTo.getPosition()}, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                            jq("#endPoint").val(results[0].formatted_address);
+                            populateZKTextbox('endCoordsHolder', results[0].geometry.location + "|" + results[0].formatted_address);
+	                        jq("#endPoint").css("border-color", "gray");
+                        } else {
+	                        jq("#endPoint").css("border-color", "red");
+                        }
+                    } else {
+	                    jq("#endPoint").css("border-color", "red");
+	                }
+                });
+                jq(this).dialog("close");
+            },
+            "Ακύρωση": function () {
+                jq(this).dialog("close");
+            }
+        },
+        open: function (event, ui) {
+            google.maps.event.trigger(searchMapTo, 'resize');
+        },
+        close: function () {
+        }
+    });
+
+    jq("#fromSearchMap").button().click(function () {
+        jq("#dialog-form-from").data('inputId', 'startPoint').dialog("open");
+
+    });
+
+    jq("#toSearchMap").button().click(function () {
+        jq("#dialog-form-to").data('inputId', 'endPoint').dialog("open");
+    });
+
+    jq("#startPoint").keyup(function (e) {
+
+        if((e.keyCode == 8) || (e.keyCode == 46)) {
+            if(jq("#startPoint").val() == "") {
+                populateZKTextbox('startCoordsHolder', "");
+            }
+        }
+
+    });
+
+    jq("#endPoint").keyup(function (e) {
+
+        if((e.keyCode == 8) || (e.keyCode == 46)) {
+            if(jq("#startPoint").val() == "") {
+                populateZKTextbox('endCoordsHolder', "");
+            }
+        }
+
+    });
+
+    startInput = (document.getElementById('startPoint'));
+    endInput = (document.getElementById('endPoint'));
+    startAutocomplete = new google.maps.places.Autocomplete(startInput, autocompleteOptions);
+    endAutocomplete = new google.maps.places.Autocomplete(endInput, autocompleteOptions);
+
+    google.maps.event.addListener(startAutocomplete, 'place_changed', function () {
+        autocompleteSelected(startInput, startAutocomplete);
+
+        var start = jq("#startPoint").val();
+        geocoder.geocode({ 'address': start}, function (results, status) {
+	        if (status == google.maps.GeocoderStatus.OK) {
+		        jq("#startPoint").css("border-color", "gray");
+                populateZKTextbox('startCoordsHolder', results[0].geometry.location + "|" + start);
+            } else {
+		        jq("#startPoint").css("border-color", "red");
+	        }
+        });
+    });
+
+    google.maps.event.addListener(endAutocomplete, 'place_changed', function () {
+        autocompleteSelected(endInput, endAutocomplete);
+
+        var end = jq("#endPoint").val();
+        geocoder.geocode({ 'address': end}, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+	            jq("#endPoint").css("border-color", "gray");
+                populateZKTextbox('endCoordsHolder', results[0].geometry.location + "|" + end);
+            } else {
+	            jq("#endPoint").css("border-color", "red");
+            }
+        });
+    });
+
+    jq("#depListPlaces").button().click(function () {
+	    $('#selectable').data('inputId', 'startPoint').dblclick(function() {
+		    acceptPopularPlace(jq(this).data('inputId'), jq('#dialog-form'));
+	    });
+        jq("#dialog-form").data('inputId', 'startPoint').dialog("open");
+    });
+
+    jq("#arrListPlaces").button().click(function () {
+	    $('#selectable').data('inputId', 'endPoint').dblclick(function() {
+		    acceptPopularPlace(jq(this).data('inputId'), jq('#dialog-form'));
+	    });
+        jq("#dialog-form").data('inputId', 'endPoint').dialog("open");
+    });
+
+    jq("#depHomePlace").button().click(function () {
+	    $('#myPlacesSelectable').data('inputId', 'startPoint').dblclick(function() {
+		    acceptMyPlace(jq(this).data('inputId'), jq('#dialog-form-my-places'));
+	    });
+	    jq("#dialog-form-my-places").data('inputId', 'startPoint').dialog("open");
+    });
+
+    jq("#arrHomePlace").button().click(function () {
+	    $('#myPlacesSelectable').data('inputId', 'endPoint').dblclick(function() {
+		    acceptMyPlace(jq(this).data('inputId'), jq('#dialog-form-my-places'));
+	    });
+	    jq("#dialog-form-my-places").data('inputId', 'endPoint').dialog("open");
+    });
+
+    jq("#dialog-form").dialog({
+        autoOpen: false,
+        height: 400,
+        width: 500,
+        modal: true,
+        buttons: {
+            "Επιλογή": function () {
+	            acceptPopularPlace(jq(this).data('inputId'), jq(this));
+            },
+            "Ακύρωση": function () {
+                selectedPopularPlace = null;
+                jq(this).dialog("close");
+	            jq('#selectable').unbind("dblclick");
+            }
+        },
+        close: function () {
+            selectedPopularPlace = null;
+            jq('#selectable .ui-selected').removeClass('ui-selected');
+	        jq('#selectable').unbind("dblclick");
+        }
+    });
+
+	jq("#dialog-form-my-places").dialog({
+		autoOpen: false,
+		height: 400,
+		width: 500,
+		modal: true,
+		buttons: {
+			"Επιλογή": function () {
+				acceptMyPlace(jq(this).data('inputId'), jq(this));
+			},
+			"Ακύρωση": function () {
+				selectedMyPlace = null;
+				jq(this).dialog("close");
+				jq('#myPlacesSelectable').unbind("dblclick");
+			}
+		},
+		close: function () {
+			selectedMyPlace = null;
+			jq('#myPlacesSelectable .ui-selected').removeClass('ui-selected');
+			jq('#myPlacesSelectable').unbind("dblclick");
+		}
+	});
+
+    jq("#selectable").selectable({
+        selected: function (event, ui) {
+            selectedPopularPlace = ui.selected.id;
+            jq(ui.selected).addClass("ui-selected").siblings().removeClass("ui-selected");
+        }
+    });
+
+    jq("#myPlacesSelectable").selectable({
+        selected: function (event, ui) {
+            selectedMyPlace = ui.selected.id;
+            jq(ui.selected).addClass("ui-selected").siblings().removeClass("ui-selected");
+        }
+    });
+
+    if (popularPlaces != null) {
+        for (var k = 0; k < popularPlaces.length; k++) {
+            jq("#selectable").append("<li id=\"" + popularPlaces[k][1] + "\" class=\"ui-widget-content\">" + popularPlaces[k][0] + "</li>");
+        }
+    }
+
+    if (myPlaces != null) {
+        for (k = 0; k < myPlaces.length; k++) {
+            jq("#myPlacesSelectable").append("<li id=\"" + myPlaces[k][1] + "\" class=\"ui-widget-content\">" + myPlaces[k][0] + "</li>");
+        }
+    }
+
+	jq('#startPoint').blur(function() {
+		if (jq('#startPoint').val() != '') {
+			google.maps.event.trigger(startAutocomplete, 'place_changed');
+		}
+	});
+
+	jq('#endPoint').blur(function() {
+		if (jq('#endPoint').val() != '') {
+			google.maps.event.trigger(endAutocomplete, 'place_changed');
+		}
+	});
+}
+
+function acceptPopularPlace(inputId, dialog) {
+	var input = jq('#' + inputId);
+	if (selectedPopularPlace != null) {
+		input.val(selectedPopularPlace);
+
+		if (inputId == 'startPoint') {
+			geocoder.geocode({ 'address': selectedPopularPlace}, function (results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					jq("#startPoint").css("border-color", "gray");
+					populateZKTextbox('startCoordsHolder', results[0].geometry.location + "|" + selectedPopularPlace);
+				} else {
+					jq("#startPoint").css("border-color", "red");
+				}
+			});
+		} else {
+			geocoder.geocode({ 'address': selectedPopularPlace}, function (results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					jq("#endPoint").css("border-color", "gray");
+					populateZKTextbox('endCoordsHolder', results[0].geometry.location + "|" + selectedPopularPlace);
+				} else {
+					jq("#endPoint").css("border-color", "red");
+				}
+			});
+		}
+
+		dialog.dialog("close");
+	}
+}
+
+function acceptMyPlace(inputId, dialog) {
+	var input = jq('#' + inputId);
+	if (selectedMyPlace != null) {
+		input.val(selectedMyPlace);
+
+		if (inputId == 'startPoint') {
+			geocoder.geocode({ 'address': selectedMyPlace}, function (results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					jq("#startPoint").css("border-color", "gray");
+					populateZKTextbox('startCoordsHolder', results[0].geometry.location + "|" + selectedMyPlace);
+				} else {
+					jq("#startPoint").css("border-color", "red");
+				}
+			});
+		} else {
+			geocoder.geocode({ 'address': selectedMyPlace}, function (results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					jq("#endPoint").css("border-color", "gray");
+					populateZKTextbox('endCoordsHolder', results[0].geometry.location + "|" + selectedMyPlace);
+				} else {
+					jq("#endPoint").css("border-color", "red");
+				}
+			});
+		}
+
+		dialog.dialog("close");
+	}
+}
+
+function autocompleteSelected(input, autocomplete) {
+//	input.className = '';
+    var place = autocomplete.getPlace();
+    if (place == null || !place.geometry) {
+        // Inform the user that the place was not found and return.
+//        input.className = 'notfound';
+        return;
+    }
+
+    var address = '';
+    if (place.address_components) {
+        address = [
+            (place.address_components[0] && place.address_components[0].short_name || ''),
+            (place.address_components[1] && place.address_components[1].short_name || ''),
+            (place.address_components[2] && place.address_components[2].short_name || '')
+        ].join(' ');
+    }
+//    input.className = 'rounded_input';
+}
+
+
+function doSearch() {
+    var w = zk.Widget.$('$startCoordsHolder');
+    zAu.send(new zk.Event(w, 'onChanging', null, {toServer: true}));
+}
+
+function doPreview(routePath, colorList, pointList, addressList, routeData) {
+	doClearResults();
+
+//	console.log(routePath);
+//	console.log(colorList);
+//	console.log(pointList);
+//	console.log(addressList);
+
+	var start, end, segmentPoints, segmentAddresses;
+	var routes = routePath.split("*");
+	var colors = colorList.split("*");
+	var points = pointList.split("*");
+	var address = addressList.split("*");
+	var rData = routeData.split("#");
+
+	for (var r=0; r<routes.length; r++) {
+//		console.log(routes[r]);
+		var data = rData[r].split("~"); // data[0] = routeId, data[1] = routeInfo
+
+		routesPathHash.setItem(data[0], routes[r]);
+		routesColorHash.setItem(data[0], colors[r]);
+		routesPointHash.setItem(data[0], points[r]);
+		routesAddressHash.setItem(data[0], address[r]);
+		routesDataHash.setItem(data[0], data[1]);
+
+		displayRoute(routes[r], colors[r]);
+
+		for (var i = 0; i < points[r].length; i++) {
+			segmentPoints = points[r].split("|");
+			segmentAddresses = address[r].split("|");
+
+			for (var k = 0; k < segmentPoints.length; k++) {
+				var coordinates = segmentPoints[k].split(",");
+				displayMarker(0, coordinates[0].trim(), coordinates[1].trim(), segmentAddresses[k], data[1], colors[r]);
+			}
+		}
+
+
+	}
+	jq('#results-map-canvas').show();
+	google.maps.event.trigger(resultsMap, 'resize');
+}
+
+function addDisplayRoute(s, e, wayps, color) {
+	directionsService.route({ 'origin': s, 'destination': e, 'waypoints': wayps,'travelMode': google.maps.DirectionsTravelMode.DRIVING}, function (response, status) {
+		if (status == google.maps.DirectionsStatus.OK) {
+			var directionDisplay = new google.maps.DirectionsRenderer({
+				draggable: false,
+				editable: false,
+				suppressMarkers: true,
+				polylineOptions: {
+					strokeColor: '#' + color,
+					strokeOpacity: 0.5,
+					strokeWeight: 5
+				}
+			});
+			directionDisplay.setMap(resultsMap);
+			directionDisplay.setDirections(response);
+
+			directionDisplays.push(directionDisplay);
+
+		} else if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+			setTimeout(function () {
+				addDisplayRoute(s, e, wayps);
+			}, 200);
+		}
+	});
+}
+
+function displayMarker(routeId, lat, lng, address, content, color) {
+	var marker = new google.maps.Marker({
+        map: resultsMap,
+        position: new google.maps.LatLng(lat, lng),
+        icon: 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|' + color,
+		title: address
+    });
+
+    google.maps.event.addListener(marker, 'click', function () {
+        infoWindow.setContent('<div style="margin: 10px"><div style="border-bottom: 1px solid red; padding: 3px">' + address + '</div>' + content + '</div>');
+        infoWindow.open(resultsMap, marker);
+    });
+    displayMarkers.push(marker)
+}
+
+function doBoundMap(id) {
+    doClearMapResults();
+
+	displayRoute(routesPathHash.getItem(id), routesColorHash.getItem(id));
+
+	var segmentPoints = routesPointHash.getItem(id).split("|");
+	var segmentAddresses = routesAddressHash.getItem(id).split("|");
+
+	for (var k = 0; k < segmentPoints.length; k++) {
+		var coordinates = segmentPoints[k].split(",");
+
+		displayMarker(0, coordinates[0].trim(), coordinates[1].trim(), segmentAddresses[k], routesDataHash.getItem(id), routesColorHash.getItem(id));
+	}
+}
+
+function displayRoute(route, color) {
+	var start, end;
+
+	var segments = route.split("#");
+
+	for (var i = 0; i < segments.length; i++) {
+//		console.log(segments[i]);
+		var segmentCoords = segments[i].split("|");
+		var coordinates = segmentCoords[0].split(",");
+		start = new google.maps.LatLng(coordinates[0].trim(), coordinates[1].trim());
+
+		coordinates = segmentCoords[1].split(",");
+		end = new google.maps.LatLng(coordinates[0].trim(), coordinates[1].trim());
+
+		var waypoints = [];
+		if (segmentCoords.length > 2) {
+			for (var j=2; j<segmentCoords.length; j++) {
+				coordinates = segmentCoords[j].split(",");
+				waypoints.push({
+					location: new google.maps.LatLng(coordinates[0].trim(), coordinates[1].trim()),
+					stopover: false
+				});
+			}
+		}
+
+		addDisplayRoute(start, end, waypoints, color);
+	}
+
+}
+
+function doClearResults() {
+	routesPathHash.clear();
+	routesPointHash.clear();
+	routesAddressHash.clear();
+	routesColorHash.clear();
+	routesDataHash.clear();
+    doClearMapResults();
+}
+
+function doClearAll() {
+    jq('#results-map-canvas').hide();
+    routesPathHash.clear();
+    routesPointHash.clear();
+    routesAddressHash.clear();
+    routesColorHash.clear();
+    routesDataHash.clear();
+    doClearMapResults();
+    jq('#startPoint').val(null);
+    jq('#endPoint').val(null);
+}
+
+function doClearMapResults() {
+    for (var i = 0; i < directionDisplays.length; i++) {
+        directionDisplays[i].setMap();
+    }
+    directionDisplays.length = 0;
+    for (i = 0; i < displayMarkers.length; i++) {
+        displayMarkers[i].setMap();
+    }
+    displayMarkers.length = 0;
+}
+
+function loadData(places, my_places) {
+    popularPlaces = places;
+	myPlaces = my_places;
+
+}
+
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
+]]>
+</script>

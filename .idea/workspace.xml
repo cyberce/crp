@@ -1,0 +1,2590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="TeiAth" />
+      <artifact name="WebServices" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list readonly="true" id="134f1c96-55b7-458c-bfe0-6e9cb1a95896" name="Default" comment="" />
+    <list default="true" id="348fb6a6-3e03-490e-8132-4128ad257ec5" name="Excluded" comment="Excluded" />
+    <list id="782c82b5-e496-44b1-a194-1dfcf8b9e226" name="ecluded" comment="ecluded" />
+    <list id="56a3619b-28f0-4bbb-bae1-8205e3c3eef4" name="EXCLUDED" comment="EXCLUDED">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/Data.iml" afterPath="$PROJECT_DIR$/Data/Data.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebServices/WebServices.iml" afterPath="$PROJECT_DIR$/WebServices/WebServices.iml" />
+    </list>
+    <list id="adca615d-7e18-4086-a1ea-c8c8ff7ca16b" name="excluded" comment="" />
+    <ignored path="TeiAth.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/crp_routes_list.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370615907650" ignored="false" />
+    <file path="/main_template.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375274710176" ignored="false" />
+    <file path="/LoginTemplateVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370614227729" ignored="false" />
+    <file path="/login_template.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374651639658" ignored="false" />
+    <file path="/ListRoutesVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370616504570" ignored="false" />
+    <file path="/template.css" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375099809713" ignored="false" />
+    <file path="/Dummy.txt" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374498156260" ignored="false" />
+    <file path="/crp_routes_edit.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370510046532" ignored="false" />
+    <file path="/product_status_edit.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370506028242" ignored="false" />
+    <file path="/transaction_type_edit.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370504239211" ignored="false" />
+    <file path="/EditTransactionTypeServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370503970607" ignored="false" />
+    <file path="/EditTransactionTypeService.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370503758083" ignored="false" />
+    <file path="/EditTransactionTypeVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370504153232" ignored="false" />
+    <file path="/CreateTransactionTypeServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370503171089" ignored="false" />
+    <file path="/CreateTransactionTypeService.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370502990831" ignored="false" />
+    <file path="/CreateTransactionTypeVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370503190412" ignored="false" />
+    <file path="/transaction_type_create.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370444277093" ignored="false" />
+    <file path="/TransactionTypeDAOImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370443633433" ignored="false" />
+    <file path="/TransactionTypeDAO.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370443502490" ignored="false" />
+    <file path="/EditProductStatusServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370506353152" ignored="false" />
+    <file path="/EditProductStatusService.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370506173650" ignored="false" />
+    <file path="/EditProductStatusVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370506569459" ignored="false" />
+    <file path="/CreateProductStatusServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370507598766" ignored="false" />
+    <file path="/CreateProductStatusService.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370441682626" ignored="false" />
+    <file path="/CreateProductStatusVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370441892716" ignored="false" />
+    <file path="/product_status_create.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370441311095" ignored="false" />
+    <file path="/EditProductCategoryServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370439781250" ignored="false" />
+    <file path="/EditProductCategoryService.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370439550279" ignored="false" />
+    <file path="/EditProductCategoryVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370439879585" ignored="false" />
+    <file path="/product_category_edit.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370439152890" ignored="false" />
+    <file path="/CreateProductCategoryServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370438516915" ignored="false" />
+    <file path="/CreateProductCategoryService.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370438377676" ignored="false" />
+    <file path="/CreateProductCategoryVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370438538093" ignored="false" />
+    <file path="/product_category_create.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370437934244" ignored="false" />
+    <file path="/ProductCategoryDAOImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370437653556" ignored="false" />
+    <file path="/ProductStatusDAOImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370505746639" ignored="false" />
+    <file path="/ProductCategoryDAO.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370437427850" ignored="false" />
+    <file path="/ProductStatusDAO.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370505646452" ignored="false" />
+    <file path="/EditAccommodationTypeVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370433721819" ignored="false" />
+    <file path="/EditAccommodationTypeServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370433461619" ignored="false" />
+    <file path="/EditAccommodationTypeService.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370433221828" ignored="false" />
+    <file path="/accommodation_type_edit.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370433046510" ignored="false" />
+    <file path="/CreateAccommodationTypeServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370432375435" ignored="false" />
+    <file path="/CreateAccommodationTypeService.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370432260911" ignored="false" />
+    <file path="/CreateAccommodationTypeVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370432517781" ignored="false" />
+    <file path="/accommodation_type_create.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370438711972" ignored="false" />
+    <file path="/AccommodationTypeDAOImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370434747489" ignored="false" />
+    <file path="/AccommodationTypeDAO.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370431243005" ignored="false" />
+    <file path="/EditAccommodationAttributeServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370429123027" ignored="false" />
+    <file path="/EditAccommodationAttributeService.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370428907238" ignored="false" />
+    <file path="/EditAccommodationAttributeVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370429363335" ignored="false" />
+    <file path="/accommodation_attribute_edit.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370429448999" ignored="false" />
+    <file path="/CreateAccommodationAttributeServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370427797378" ignored="false" />
+    <file path="/CreateAccommodationAttributeService.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370427634768" ignored="false" />
+    <file path="/CreateAccommodationAttributeVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370427827113" ignored="false" />
+    <file path="/accommodation_attribute_create.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370426810445" ignored="false" />
+    <file path="/AccommodationAttributeDAOImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370426183311" ignored="false" />
+    <file path="/AccommodationAttributeDAO.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370426084038" ignored="false" />
+    <file path="/EditEventStatusServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370422600577" ignored="false" />
+    <file path="/EditEventStatusService.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370422411102" ignored="false" />
+    <file path="/EditEventStatusVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370422715186" ignored="false" />
+    <file path="/event_status_edit.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370421340034" ignored="false" />
+    <file path="/event_status_create.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370420970339" ignored="false" />
+    <file path="/value_list.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370444214929" ignored="false" />
+    <file path="/PageURL.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374659480136" ignored="false" />
+    <file path="/ListValuesServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370505580755" ignored="false" />
+    <file path="/ListValuesService.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370505467968" ignored="false" />
+    <file path="/ListValuesVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370506717050" ignored="false" />
+    <file path="/EventStatusDAOImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370355066341" ignored="false" />
+    <file path="/EventStatusDAO.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370354950254" ignored="false" />
+    <file path="/CreateEventStatusServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370355184791" ignored="false" />
+    <file path="/CreateEventStatusService.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370354564960" ignored="false" />
+    <file path="/event_statuses_create.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370353987162" ignored="false" />
+    <file path="/CreateEventStatusVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370354635791" ignored="false" />
+    <file path="/event_category_create.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1370419905506" ignored="false" />
+    <file path="/database.properties" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375262267947" ignored="false" />
+    <file path="/completedRoutesReport.jrxml" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368525880448" ignored="false" />
+    <file path="/CreateListingServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368527516997" ignored="false" />
+    <file path="/createdListingsReportDialog.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368530429981" ignored="false" />
+    <file path="/fragment.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375277751375" ignored="false" />
+    <file path="/createdListingsReportDialogVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368530748267" ignored="false" />
+    <file path="/ReportToolkit.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368540396149" ignored="false" />
+    <file path="/ExcelToolkit.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368540490145" ignored="false" />
+    <file path="/ReportsServlet.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368541573672" ignored="false" />
+    <file path="/ListingsExcelService.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368537343769" ignored="false" />
+    <file path="/ListingsExcelServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368537393775" ignored="false" />
+    <file path="/ListingDAO.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368537422369" ignored="false" />
+    <file path="/ListingDAOImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368535523260" ignored="false" />
+    <file path="/CreatedListingsReport.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368531689187" ignored="false" />
+    <file path="/ListingsTransactionTypeDialog.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368533456783" ignored="false" />
+    <file path="/ListingsTransactionTypeDialogServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368533691242" ignored="false" />
+    <file path="/ListingsTransactionTypeDialogVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368534420247" ignored="false" />
+    <file path="/Report.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368533851998" ignored="false" />
+    <file path="/ListingsByTransactionTypeReport.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368535558147" ignored="false" />
+    <file path="/listingsProductCategoryDialog.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368536371008" ignored="false" />
+    <file path="/ListingsProductCategoryDialogVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368537111288" ignored="false" />
+    <file path="/ListingsProductCategoryDialogService.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368536500854" ignored="false" />
+    <file path="/ListingsProductCategoryDialogServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368536598131" ignored="false" />
+    <file path="/ListingsByProductCategoryReport.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368537501784" ignored="false" />
+    <file path="/onGoingActionsReportDialog.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368538521560" ignored="false" />
+    <file path="/onGoinfActionsReportDialogVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368538630376" ignored="false" />
+    <file path="/zk-label_el.properties" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375084128395" ignored="false" />
+    <file path="/OnGoingActionsReport.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368539560341" ignored="false" />
+    <file path="/ActionsExcelService.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368541161948" ignored="false" />
+    <file path="/ActionsExcelServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368541410885" ignored="false" />
+    <file path="/EventDAO.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368541288640" ignored="false" />
+    <file path="/EventDAOImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368541365731" ignored="false" />
+    <file path="/ActionsByCategoryReportDialog.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368539998090" ignored="false" />
+    <file path="/ActionsByCategoryDialogVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368540520849" ignored="false" />
+    <file path="/ActionsByCategoryDialogServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368540236796" ignored="false" />
+    <file path="/ActionsByEventCategoryReport.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1368541770837" ignored="false" />
+    <file path="/RssViewer.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1373966799149" ignored="false" />
+    <file path="/Accommodation.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1373965469190" ignored="false" />
+    <file path="/AccommodationViewVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1373965764432" ignored="false" />
+    <file path="/ServiceRoommate.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1373965920179" ignored="false" />
+    <file path="/RoommatesController.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1373966212968" ignored="false" />
+    <file path="/ServiceProduct.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1373966412651" ignored="false" />
+    <file path="/ProductsController.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1373966452172" ignored="false" />
+    <file path="/Event.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1373966658851" ignored="false" />
+    <file path="/CreateActionServiceImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1373966716688" ignored="false" />
+    <file path="/ServiceEvent.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1373966747671" ignored="false" />
+    <file path="/EventsController.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1373966770157" ignored="false" />
+    <file path="/crp_routes_search.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374656525411" ignored="false" />
+    <file path="/ntf_notifications_list.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374657435474" ignored="false" />
+    <file path="/ntf_routes_notifications_list.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374657686339" ignored="false" />
+    <file path="/ListNotificationsVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374845225662" ignored="false" />
+    <file path="/ntf_routes_notifications_criteria_list.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374658347826" ignored="false" />
+    <file path="/ListRoutesNotificationsVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374658623866" ignored="false" />
+    <file path="/ntf_route_notification_view.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374658572012" ignored="false" />
+    <file path="/ViewRouteNotificationVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374658630185" ignored="false" />
+    <file path="/ViewNotificationVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374658667369" ignored="false" />
+    <file path="/CreateRouteNotificationCriteriaVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374659027270" ignored="false" />
+    <file path="/ListRoutesNotificationsCriteriaVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374659614415" ignored="false" />
+    <file path="/ntf_route_criterion_view.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374659511119" ignored="false" />
+    <file path="/RouteNotificationCriteria.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374659754251" ignored="false" />
+    <file path="/user_list.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375083282204" ignored="false" />
+    <file path="/index.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375084147344" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/web/zul/templates/login_template.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374842168100" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/web/zul/templates/main_template.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375274710176" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/src/org/teiath/web/vm/templates/MainTemplateVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375099302630" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/src/org/teiath/web/vm/IndexVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374842798011" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/web/WEB-INF/zk-label_el.properties" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375084128395" ignored="false" />
+    <file path="/MainTemplateVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375100152274" ignored="false" />
+    <file path="/trg_listings_search.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374844300794" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/web/zul/trg/trg_listings_search.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374844300794" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/web/zul/trg/trg_listings_view_search.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374844346516" ignored="false" />
+    <file path="/trg_listings_view_search.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374844346516" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/src/org/teiath/web/vm/ntf/ListNotificationsVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1374845248644" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/web/zul/ntf/ntf_notifications_criteria_list.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375082686645" ignored="false" />
+    <file path="/ListNotificationsCriteriaVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375082790972" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/src/org/teiath/web/vm/ntf/ListNotificationsCriteriaVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375082853295" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/web/zul/user/user_view.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375083249086" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/web/zul/user/user_list.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375083282204" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/web/css/template.css" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375084041105" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/web/index.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375084147344" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/src/org/teiath/web/vm/templates/LoginTemplateVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375099445041" ignored="false" />
+    <file path="$PROJECT_DIR$/../../ACT/TEI_CHECKOUT/Presentation/web/zul/templates/main_template.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375100106508" ignored="false" />
+    <file path="$PROJECT_DIR$/../../ACT/TEI_CHECKOUT/Presentation/src/org/teiath/web/vm/templates/MainTemplateVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375100160487" ignored="false" />
+    <file path="$PROJECT_DIR$/../../ACT/TEI_CHECKOUT/Presentation/src/org/teiath/web/vm/templates/LoginTemplateVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375100330365" ignored="false" />
+    <file path="$PROJECT_DIR$/../../ACT/TEI_CHECKOUT/Presentation/web/css/template.css" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375100510873" ignored="false" />
+    <file path="/RouteDAOImpl.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375256819932" ignored="false" />
+    <file path="$PROJECT_DIR$/../../BACKUPS/untitled3/src/dev/predictor/listAdapters/DateListAdapter.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375267528131" ignored="false" />
+    <file path="/DateListAdapter.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375267522859" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/web/zul/user/value_list.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375274776993" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/web/zul/trg/trg_listings_edit.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375276202554" ignored="false" />
+    <file path="/trg_listings_edit.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375276189606" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/src/org/teiath/web/vm/trg/EditListingVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375276888545" ignored="false" />
+    <file path="/EditListingVM.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375276777285" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/web/zul/trg/trg_listings_list.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375277348023" ignored="false" />
+    <file path="/trg_listings_list.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375277268436" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/web/zul/trg/trg_listings_create.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375277858436" ignored="false" />
+    <file path="/trg_listings_create.zul" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375277853375" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Data/src/org/teiath/data/domain/trg/Currency.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375277804762" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Data/src/org/teiath/data/domain/trg/Listing.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375277840436" ignored="false" />
+    <file path="/Listing.java" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375277838046" ignored="false" />
+    <file path="$PROJECT_DIR$/../../TRG/TEI_CHECKOUT/Presentation/web/WEB-INF/config.xml" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375277883223" ignored="false" />
+    <file path="/config.xml" changelist="348fb6a6-3e03-490e-8132-4128ad257ec5" time="1375277881795" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="Commander">
+    <leftPanel />
+    <rightPanel />
+    <splitter proportion="0.5" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/TeiAth$TeiAth_Web.coverage" NAME="TeiAth Web Coverage Results" MODIFIED="1367319431606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DatabaseView">
+    <flatten value="false" />
+    <groupTables value="false" />
+  </component>
+  <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" />
+    <line_breakpoints default_suspend_policy="SuspendAll">
+      <breakpoint url="file://$PROJECT_DIR$/Test/src/org/teiath/test/service/ListRoutesServiceTest.java" line="18" class="org.teiath.test.service.ListRoutesServiceTest" package="org.teiath.test.service">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/Presentation/src/org/teiath/web/vm/crp/ViewHistoryRouteVM.java" line="94" class="org.teiath.web.vm.crp.ViewHistoryRouteVM" package="org.teiath.web.vm.crp">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
+    <breakpoint_any default_suspend_policy="SuspendAll">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <breakpoint_rules />
+    <ui_properties />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="TeiAth" />
+    <favorites_list name="TEI" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="UserLoginServiceImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Data Access/src/org/teiath/service/user/UserLoginServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="73" column="30" selection-start="2296" selection-end="2296" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login_template.zul" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/web/zul/templates/login_template.zul">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="47" selection-start="1933" selection-end="1933" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1387130133306" expanded="true" signature="2020:2071" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoutesController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebServices/src/org/teiath/webservices/controllers/RoutesController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="118" column="19" selection-start="5150" selection-end="5150" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jboss-web.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/web/WEB-INF/jboss-web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="22" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ldap.properties" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Presentation/web/WEB-INF/properties/ldap.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="32" selection-start="199" selection-end="199" vertical-scroll-proportion="0.18888889">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.zul" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/web/index.zul">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="27" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/web/WEB-INF/config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="termsPopup.zul" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/web/zul/crp/terms/termsPopup.zul">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="crp_terms.zul" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/web/zul/crp/terms/crp_terms.zul">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="apiGuide.htm" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/web/zul/aux_material/html/apiGuide.htm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="0" selection-start="0" selection-end="149" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="CHECKOUT_INCLUDE_TAGS" value="false" />
+    <option name="UPDATE_CHANGES_POLICY" value="STASH" />
+    <option name="LINE_SEPARATORS_CONVERSION" value="ASK" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Presentation/web/zul/gmaps/design.html" />
+        <option value="$PROJECT_DIR$/WebServices/src/org/teiath/webservices/common/Location.java" />
+        <option value="$PROJECT_DIR$/WebServices/src/org/teiath/webservices/common/PolylineDecoder.java" />
+        <option value="$PROJECT_DIR$/WebServices/src/Test.java" />
+        <option value="$PROJECT_DIR$/Data/src/org/teiath/data/domain/crp/RoutePath.java" />
+        <option value="$PROJECT_DIR$/Presentation/src/org/teiath/web/vm/crp/ListRoutesVM.java" />
+        <option value="$PROJECT_DIR$/Presentation/web/zul/aux_material/html/terms.htm" />
+        <option value="$PROJECT_DIR$/Data Access/src/org/teiath/service/user/UserLoginService.java" />
+        <option value="$PROJECT_DIR$/Data Access/src/org/teiath/service/user/UserLoginServiceImpl.java" />
+        <option value="$PROJECT_DIR$/WebServices/src/org/teiath/webservices/controllers/RoutesController.java" />
+        <option value="$PROJECT_DIR$/Presentation/web/zul/templates/main_template.zul" />
+        <option value="$PROJECT_DIR$/Presentation/web/zul/templates/login_template.zul" />
+        <option value="$PROJECT_DIR$/Presentation/web/WEB-INF/properties/ldap.properties" />
+        <option value="$PROJECT_DIR$/Presentation/web/index.zul" />
+        <option value="$PROJECT_DIR$/Presentation/web/WEB-INF/zk-label_el.properties" />
+        <option value="$PROJECT_DIR$/Presentation/web/WEB-INF/jboss-web.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <OptionsSetting value="true" id="Undo Check Out" />
+    <OptionsSetting value="true" id="Get Latest Version" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectStructureProblems">
+    <ignored-problems>
+      <problem id="invalid-module-dependency(module:Data Access,ext)" />
+      <problem id="invalid-module-dependency(module:Data,ext)" />
+      <problem id="invalid-module-dependency(module:Presentation,ext)" />
+      <problem id="invalid-module-dependency(module:Test,ext)" />
+      <problem id="invalid-module-dependency(module:WebServices,JBoss 7.1.1.Final)" />
+      <problem id="library-invalid-classes-path(library:project:zk-6.0)" />
+      <problem id="unused-library(library:project:junit-4)" />
+      <problem id="unused-library(library:project:zk-6.0)" />
+    </ignored-problems>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebServices" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebServices" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webservices" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="viewers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebServices" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webservices" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebServices" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webservices" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebServices" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webservices" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebServices" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webservices" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="authentication" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zul" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zul" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zul" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gmaps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zul" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zul" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="terms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zul" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aux_material" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zul" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aux_material" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="properties" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="secure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vehicle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="secure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aux_material" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servlet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data Access" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data Access" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vehicle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data Access" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data Access" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data Access" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sys" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data Access" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domain" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domain" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEI_CRP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TeiAth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../BACKUPS/untitled3" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="tei_checkout" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="options.lastSelected" value="preferences.externalResources" />
+    <property name="DefaultHtmlFileTemplate" value="Html" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.teiath.service.user" />
+      <recent name="org.teiath.web.vm.ntf" />
+      <recent name="org.teiath.webservices.model" />
+      <recent name="org.teiath.webservices.controllers" />
+      <recent name="org.teiath.service.rmt" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\CRP\TEI_CHECKOUT\Presentation\web\img" />
+      <recent name="C:\Users\User\Desktop\CRP\TEI_CHECKOUT\Presentation\web\zul\ntf" />
+      <recent name="C:\Users\User\Desktop\TEI_CHECKOUT\Presentation\web" />
+      <recent name="C:\Users\User\Desktop\TEI_CHECKOUT\Presentation\web\img" />
+      <recent name="C:\Users\User\Desktop\test1\TEI\Presentation\web\img" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.teiath.web.vm.crp" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\TEI_CHECKOUT\WebServices\web" />
+      <recent name="C:\Users\User\Desktop\TEI_CHECKOUT\WebServices\web\WEB-INF" />
+      <recent name="C:\teiStyle2 - Copy\TEIATH\Data\src\org\teiath\data\config" />
+      <recent name="C:\teiStyle2 - Copy\TEIATH\Presentation\web\WEB-INF\properties" />
+      <recent name="C:\teiStyle2 - Copy\TEIATH\Presentation\web\WEB-INF" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.teiath.data.domain.crp.custom" />
+      <recent name="org.teiath.data.dao" />
+      <recent name="org.teiath.data.domain.crp" />
+      <recent name="org.teiath.data.domain.image" />
+      <recent name="org.teiath.data.dao.user" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JBoss Server.JBoss 7.1.1.Final">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JBossConfiguration" factoryName="Local">
+      <deployment />
+      <server-settings>
+        <option name="SERVER" value="" />
+        <option name="BINDING_SET_NAME" value="" />
+        <option name="USERNAME" value="" />
+        <option name="PASSWORD" value="" />
+      </server-settings>
+      <predefined_log_file id="JBoss" enabled="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" adl_options="" air_descriptor_path="" air_program_params="" air_publisher_id="" air_root_dir_path="" air_run_mode="AppDescriptor" browser_family="FIREFOX" class_name="" debugger_sdk="Module SDK" html_or_swf_file_path="" launcher_type="OSDefault" main_class_name="" method_name="" module_name="" output_log_level="" package_name="" player_path="FlashPlayer.exe" port="0" run_mode="HtmlOrSwfFile" run_trusted="true" scope="Class" socket_policy_port="0" url_to_launch="http://">
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
+      <deployment />
+      <server-settings />
+      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="false" name="JBoss 7.1.1.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 7.1.1.Final">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
+      <deployment>
+        <artifact name="crp">
+          <settings />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="SERVER" />
+        <option name="BINDING_SET_NAME" value="" />
+        <option name="USERNAME" value="" />
+        <option name="PASSWORD" value="" />
+      </server-settings>
+      <predefined_log_file id="JBoss" enabled="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="52335" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="C:/Development/jboss-4.2.3.GA/bin/run.bat" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="C:/Development/jboss-4.2.3.GA/bin/shutdown.bat" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="-s jnp://localhost:2147483647 -S" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="C:/Development/jboss-4.2.3.GA/bin/run.bat" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="C:/Development/jboss-4.2.3.GA/bin/shutdown.bat" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="-s jnp://localhost:2147483647 -S" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="crp" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="false" name="CRP" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
+      <deployment>
+        <artifact name="crp">
+          <settings>
+            <option name="CONTEXT_PATH" value="/crp" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_TEI_CHECKOUT" />
+      </server-settings>
+      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="64469" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="%IDEA_RUN:TOMCAT_HOME%/bin/catalina.bat" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="run" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="%IDEA_RUN:TOMCAT_HOME%/bin/catalina.bat" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="stop" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="%IDEA_RUN:TOMCAT_HOME%/bin/catalina.bat" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="run" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="%IDEA_RUN:TOMCAT_HOME%/bin/catalina.bat" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="stop" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="crp" />
+        </option>
+      </method>
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="JBoss Server.JBoss 7.1.1.Final" />
+      <item index="1" class="java.lang.String" itemvalue="Tomcat Server.CRP" />
+    </list>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value="ALPHA_COMPARATOR" />
+  </component>
+  <component name="SvnConfiguration" maxAnnotateRevisions="500">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="true" />
+    <configuration useDefault="false">C:\Users\Alex\AppData\Roaming\Subversion</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="C:\Projects\tei_athinwn\crp - Copy" />
+          <option name="myCopyRoot" value="C:\Projects\tei_athinwn\crp - Copy" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="C:\Projects\tei_athinwn\crp - Copy\.idea" />
+          <option name="myCopyRoot" value="C:\Projects\tei_athinwn\crp - Copy\.idea" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="C:\Projects\tei_athinwn\crp - Copy\Data" />
+          <option name="myCopyRoot" value="C:\Projects\tei_athinwn\crp - Copy\Data" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="C:\Projects\tei_athinwn\crp - Copy\Data Access" />
+          <option name="myCopyRoot" value="C:\Projects\tei_athinwn\crp - Copy\Data Access" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="C:\Projects\tei_athinwn\crp - Copy\Presentation" />
+          <option name="myCopyRoot" value="C:\Projects\tei_athinwn\crp - Copy\Presentation" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="C:\Projects\tei_athinwn\crp - Copy\Test" />
+          <option name="myCopyRoot" value="C:\Projects\tei_athinwn\crp - Copy\Test" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="C:\Projects\tei_athinwn\crp - Copy\WebServices" />
+          <option name="myCopyRoot" value="C:\Projects\tei_athinwn\crp - Copy\WebServices" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="C:\Projects\tei_athinwn\crp - Copy" />
+          <option name="myCopyRoot" value="C:\Projects\tei_athinwn\crp - Copy" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="C:\Projects\tei_athinwn\crp - Copy\Data Access" />
+          <option name="myCopyRoot" value="C:\Projects\tei_athinwn\crp - Copy\Data Access" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task id="Default" summary="Default task">
+      <changelist id="134f1c96-55b7-458c-bfe0-6e9cb1a95896" name="Default" comment="" />
+      <created>1353943960130</created>
+      <updated>1354182105109</updated>
+    </task>
+    <task id="LOCAL-00001">
+      <created>1354036422105</created>
+      <updated>1354036422105</updated>
+    </task>
+    <task id="LOCAL-00002">
+      <created>1354092985152</created>
+      <updated>1354092985152</updated>
+    </task>
+    <task id="LOCAL-00003">
+      <created>1354114808104</created>
+      <updated>1354114808104</updated>
+    </task>
+    <task id="LOCAL-00004">
+      <created>1354115404102</created>
+      <updated>1354115404102</updated>
+    </task>
+    <task id="LOCAL-00005">
+      <created>1354115518103</created>
+      <updated>1354115518103</updated>
+    </task>
+    <task id="LOCAL-00006">
+      <created>1354115674103</created>
+      <updated>1354115674103</updated>
+    </task>
+    <task id="LOCAL-00007">
+      <created>1354116277103</created>
+      <updated>1354116277103</updated>
+    </task>
+    <task active="true" id="LOCAL-00008" summary="Excluded">
+      <changelist id="348fb6a6-3e03-490e-8132-4128ad257ec5" name="Excluded" comment="" />
+      <changelist id="782c82b5-e496-44b1-a194-1dfcf8b9e226" name="ecluded" comment="" />
+      <changelist id="56a3619b-28f0-4bbb-bae1-8205e3c3eef4" name="EXCLUDED" comment="" />
+      <changelist id="adca615d-7e18-4086-a1ea-c8c8ff7ca16b" name="excluded" comment="" />
+      <created>1354176711154</created>
+      <updated>1354182105109</updated>
+    </task>
+    <task id="LOCAL-00009">
+      <created>1354178853110</created>
+      <updated>1354178853110</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Excluded">
+      <created>1354202181103</created>
+      <updated>1354202181103</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Excluded">
+      <created>1354287467106</created>
+      <updated>1354287467106</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Excluded">
+      <created>1354287538103</created>
+      <updated>1354287538103</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Excluded">
+      <created>1354287935103</created>
+      <updated>1354287935103</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Excluded">
+      <created>1354290227104</created>
+      <updated>1354290227104</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Excluded">
+      <created>1354526542111</created>
+      <updated>1354526542111</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Excluded">
+      <created>1355326348103</created>
+      <updated>1355326348103</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Excluded">
+      <created>1355401823107</created>
+      <updated>1355401823107</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Excluded">
+      <created>1355489796112</created>
+      <updated>1355489796112</updated>
+    </task>
+    <task id="LOCAL-00019">
+      <created>1355490088106</created>
+      <updated>1355490088106</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Excluded">
+      <created>1355490239103</created>
+      <updated>1355490239103</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Excluded">
+      <created>1355493740105</created>
+      <updated>1355493740105</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Excluded">
+      <created>1355493945074</created>
+      <updated>1355493945074</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Excluded">
+      <created>1355494213103</created>
+      <updated>1355494213103</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Excluded">
+      <created>1355495472103</created>
+      <updated>1355495472103</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Excluded">
+      <created>1355497396103</created>
+      <updated>1355497396103</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Excluded">
+      <created>1355830272105</created>
+      <updated>1355830272105</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Excluded">
+      <created>1355830281103</created>
+      <updated>1355830281103</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Excluded">
+      <created>1355835638103</created>
+      <updated>1355835638103</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Excluded">
+      <created>1355917038107</created>
+      <updated>1355917038107</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Excluded">
+      <created>1356014693109</created>
+      <updated>1356014693109</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Excluded">
+      <created>1356103246124</created>
+      <updated>1356103246124</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Excluded">
+      <created>1356104116106</created>
+      <updated>1356104116106</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Excluded">
+      <created>1356344420140</created>
+      <updated>1356344420140</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Excluded">
+      <created>1357555458118</created>
+      <updated>1357555458118</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Excluded">
+      <created>1357655191105</created>
+      <updated>1357655191105</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Excluded">
+      <created>1357739914142</created>
+      <updated>1357739914142</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Excluded">
+      <created>1357919653107</created>
+      <updated>1357919653107</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Excluded">
+      <created>1358164790153</created>
+      <updated>1358164790153</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Excluded">
+      <created>1358428242131</created>
+      <updated>1358428242131</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Excluded">
+      <created>1358520371113</created>
+      <updated>1358520371113</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Excluded">
+      <created>1358763501107</created>
+      <updated>1358763501107</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Excluded">
+      <created>1358773166103</created>
+      <updated>1358773166103</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Excluded">
+      <created>1358846822112</created>
+      <updated>1358846822112</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Excluded">
+      <created>1358868738103</created>
+      <updated>1358868738103</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Excluded">
+      <created>1358946991090</created>
+      <updated>1358946991090</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Excluded">
+      <created>1359380590076</created>
+      <updated>1359380590076</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Excluded">
+      <created>1360164807105</created>
+      <updated>1360164807105</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Excluded">
+      <created>1360767746170</created>
+      <updated>1360767746170</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Excluded">
+      <created>1361370610105</created>
+      <updated>1361370610105</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Excluded">
+      <created>1362403194161</created>
+      <updated>1362403194161</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Excluded">
+      <created>1362663842119</created>
+      <updated>1362663842119</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Excluded">
+      <created>1363007959141</created>
+      <updated>1363007959141</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Excluded">
+      <created>1363268690108</created>
+      <updated>1363268690108</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Excluded">
+      <created>1363268733122</created>
+      <updated>1363268733122</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Excluded">
+      <created>1363268744106</created>
+      <updated>1363268744106</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Excluded">
+      <created>1363268761107</created>
+      <updated>1363268761107</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Excluded">
+      <created>1363268779105</created>
+      <updated>1363268779106</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Excluded">
+      <created>1363268809106</created>
+      <updated>1363268809106</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Excluded">
+      <created>1363268834106</created>
+      <updated>1363268834106</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Excluded">
+      <created>1363268842106</created>
+      <updated>1363268842106</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Excluded">
+      <created>1363268882120</created>
+      <updated>1363268882120</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Excluded">
+      <created>1363268891131</created>
+      <updated>1363268891131</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Excluded">
+      <created>1363268901108</created>
+      <updated>1363268901108</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Excluded">
+      <created>1363268961106</created>
+      <updated>1363268961106</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Excluded">
+      <created>1363268983106</created>
+      <updated>1363268983106</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Excluded">
+      <created>1366876538107</created>
+      <updated>1366876538107</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Excluded">
+      <created>1368784432109</created>
+      <updated>1368784432109</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Excluded">
+      <created>1368784518107</created>
+      <updated>1368784518107</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Excluded">
+      <created>1369042713122</created>
+      <updated>1369042713122</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Excluded">
+      <created>1370515317117</created>
+      <updated>1370515317117</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Excluded">
+      <created>1370935901107</created>
+      <updated>1370935901107</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Excluded">
+      <created>1370940539110</created>
+      <updated>1370940539110</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Excluded">
+      <created>1370952477106</created>
+      <updated>1370952477106</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Excluded">
+      <created>1370955576106</created>
+      <updated>1370955576106</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Excluded">
+      <created>1370956749106</created>
+      <updated>1370956749106</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Excluded">
+      <created>1371021143193</created>
+      <updated>1371021143193</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Excluded">
+      <created>1371025311109</created>
+      <updated>1371025311109</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Excluded">
+      <created>1371026833107</created>
+      <updated>1371026833107</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Excluded">
+      <created>1371027217107</created>
+      <updated>1371027217107</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Excluded">
+      <created>1371029836107</created>
+      <updated>1371029836107</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Excluded">
+      <created>1371046038106</created>
+      <updated>1371046038107</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Excluded">
+      <created>1371046460109</created>
+      <updated>1371046460109</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Excluded">
+      <created>1371113189141</created>
+      <updated>1371113189141</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Excluded">
+      <created>1371193031178</created>
+      <updated>1371193031179</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Excluded">
+      <created>1371193169106</created>
+      <updated>1371193169106</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Excluded">
+      <created>1371196298107</created>
+      <updated>1371196298107</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Excluded">
+      <created>1371204324106</created>
+      <updated>1371204324107</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Excluded">
+      <created>1371209240106</created>
+      <updated>1371209240106</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Excluded">
+      <created>1371210431106</created>
+      <updated>1371210431107</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Excluded">
+      <created>1371636461110</created>
+      <updated>1371636461111</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Excluded">
+      <created>1372157734161</created>
+      <updated>1372157734161</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Excluded">
+      <created>1372757800114</created>
+      <updated>1372757800114</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Excluded">
+      <created>1373022688113</created>
+      <updated>1373022688113</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Excluded">
+      <created>1373027903106</created>
+      <updated>1373027903106</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Excluded">
+      <created>1373887929165</created>
+      <updated>1373887929165</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Excluded">
+      <created>1373892234106</created>
+      <updated>1373892234106</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Excluded">
+      <created>1373893197111</created>
+      <updated>1373893197111</updated>
+    </task>
+    <task id="LOCAL-00100" summary="Excluded">
+      <created>1373967095136</created>
+      <updated>1373967095136</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Excluded">
+      <created>1373974970117</created>
+      <updated>1373974970117</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Excluded">
+      <created>1374498159134</created>
+      <updated>1374498159134</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.391453" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18461539" sideWeight="0.49713057" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.6831276" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.71452993" sideWeight="0.6257576" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7094017" sideWeight="0.3689394" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26904377" sideWeight="0.09741784" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.8145604" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6905983" sideWeight="0.0" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50940174" sideWeight="0.4537879" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26887792" sideWeight="0.7074176" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.391453" sideWeight="0.49709725" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28863636" sideWeight="0.2854701" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287879" sideWeight="0.2786325" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39885223" sideWeight="0.6730769" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27878788" sideWeight="0.2854701" order="0" side_tool="true" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51452994" sideWeight="0.4280303" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Fireworks" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.82393163" sideWeight="0.49675325" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.6197183" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921812" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="SVN Properties" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17253521" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.63076925" sideWeight="0.49675325" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295325" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" value="Excluded" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.82222223" />
+    <MESSAGE value="Excluded" />
+  </component>
+  <component name="VssConfiguration">
+    <option name="CLIENT_PATH" value="" />
+    <option name="SRCSAFEINI_PATH" value="" />
+    <option name="USER_NAME" value="" />
+    <option name="PWD" value="" />
+    <CheckoutOptions>
+      <option name="COMMENT" value="" />
+      <option name="DO_NOT_GET_LATEST_VERSION" value="false" />
+      <option name="REPLACE_WRITABLE" value="false" />
+      <option name="RECURSIVE" value="false" />
+    </CheckoutOptions>
+    <CheckinOptions>
+      <option name="COMMENT" value="" />
+      <option name="KEEP_CHECKED_OUT" value="false" />
+      <option name="RECURSIVE" value="false" />
+    </CheckinOptions>
+    <AddOptions>
+      <option name="STORE_ONLY_LATEST_VERSION" value="false" />
+      <option name="CHECK_OUT_IMMEDIATELY" value="false" />
+    </AddOptions>
+    <UndocheckoutOptions>
+      <option name="MAKE_WRITABLE" value="false" />
+      <option name="REPLACE_LOCAL_COPY" value="2" />
+      <option name="RECURSIVE" value="false" />
+    </UndocheckoutOptions>
+    <GetOptions>
+      <option name="REPLACE_WRITABLE" value="0" />
+      <option name="MAKE_WRITABLE" value="false" />
+      <option name="ANSWER_NEGATIVELY" value="false" />
+      <option name="ANSWER_POSITIVELY" value="false" />
+      <option name="RECURSIVE" value="false" />
+      <option name="VERSION" />
+    </GetOptions>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="XPathView.XPathProjectComponent">
+    <history />
+    <find-history />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Presentation/web/zul/aux_material/presentation.zul">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/web/zul/templates/main_template.zul">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="197" selection-start="5494" selection-end="5494" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/web/zul/crp/terms/termsLoginPopup.zul">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="39" selection-start="26" selection-end="26" vertical-scroll-proportion="-0.1574074" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/web/zul/crp/terms/terms.zul">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="153" column="25" selection-start="8" selection-end="10411" vertical-scroll-proportion="0.77962965" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/web/WEB-INF/zk-label_el.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="31" selection-start="873" selection-end="873" vertical-scroll-proportion="0.67741936" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data Access/src/org/teiath/service/user/UserLoginService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="22" selection-start="351" selection-end="351" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data Access/src/org/teiath/service/user/UserLoginServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="30" selection-start="2296" selection-end="2296" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/web/index.zul">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="27" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/web/WEB-INF/config.xml">
+      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/web/zul/crp/terms/termsPopup.zul">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/web/zul/crp/terms/crp_terms.zul">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/web/zul/aux_material/html/apiGuide.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="0" selection-end="149" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/web/zul/templates/login_template.zul">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="47" selection-start="1933" selection-end="1933" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1387130133306" expanded="true" signature="2020:2071" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebServices/src/org/teiath/webservices/controllers/RoutesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="19" selection-start="5150" selection-end="5150" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/web/WEB-INF/jboss-web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="22" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/web/WEB-INF/properties/ldap.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="32" selection-start="199" selection-end="199" vertical-scroll-proportion="0.18888889">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor>
+            <show-content>
+              <type id="artifact" />
+              <type id="javaee-facet-resources" />
+              <type id="library" />
+              <type id="jpa-descriptors" />
+            </show-content>
+          </artifact-editor>
+          <last-edited>crp</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web (Presentation)|Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Presentation</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>jts-1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+

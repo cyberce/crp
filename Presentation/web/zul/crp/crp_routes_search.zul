@@ -1,0 +1,442 @@
+<?page viewport="width=device-width, initial-scale=0.5, user-scalable=yes"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/zul/templates/main_template.zul"?>
+<?page title="${labels.template.title}"?>
+<?link rel="shortcut icon" type="image/x-icon" href="/img/logo.png"?>
+<?link rel="icon" type="image/x-icon" href="/img/logo.png"?>
+<?root-attributes lang="en"xml:lang="en"?>
+<?script type="text/javascript" src="/js/rateit/jquery.rateit.js"?>
+<?script type="text/javascript" src="/js/rateit/jquery.rateit.min.js"?>
+<window xmlns="http://www.zkoss.org/2005/zul"
+        xmlns:h="http://www.w3.org/1999/xhtml"
+        self="@define(detail)"
+        border="none"
+        width="1200px"
+        id="routeSearchWin"
+        apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.teiath.web.vm.crp.SearchRoutesVM')"
+        validationMessages="@id('vmsgs')">
+
+	<zscript><![CDATA[
+
+      import java.util.Comparator;
+      import org.teiath.web.comparator.ListboxEmptyComparator;
+
+      Comparator comparator = new ListboxEmptyComparator();
+  ]]></zscript>
+
+	<style>
+		div.z-listbox {
+		border: 0;
+		}
+
+		.z-paging {
+		background-color: #ffffff;
+		}
+
+		div.z-listbox-pgi-b {
+		border: 0;
+		}
+	</style>
+	<style src="/css/maps.css" />
+
+	<style src="/js/rateit/rateit.css" />
+	<style src="/js/rateit/bigstars.css" />
+
+	<script type="text/javascript">
+		function doLoad(ownerval) {
+		$('.rateitowner').rateit({
+		step: 1,
+		starwidth: 16,
+		starheight: 16,
+		readonly: true,
+		value: ownerval
+		});
+		}
+	</script>
+
+	<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<style src="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+	<script src="/zul/gmaps/js/utils.js"></script>
+
+	<include src="/zul/gmaps/search.html" mode="instant" />
+
+	<div sclass="detail">
+		<div align="left" width="99%">
+			<hbox width="100%" widths="5%, 95%">
+				<label sclass="headerText" value="${labels.route.search}" />
+			</hbox>
+			<separator height="20px" />
+			<groupbox
+					form="@id('fx') @save(vm.routeSearchCriteria, before='onSearch')"
+					id="gb3" mold="3d" width="100%"
+					open="true">
+				<attribute name="onOpen">
+					<![CDATA[
+                      import org.zkoss.util.resource.Labels;
+
+                      searchHeader.value = self.isOpen()? Labels.getLabel("search.title_hide") : Labels.getLabel("search.title_show");
+                      searchCaption.label = self.isOpen()? Labels.getLabel("search.criteria") : Labels.getLabel("search.click_here");
+                  ]]>
+				</attribute>
+				<caption id="searchCaption" label="${labels.search.hide}"></caption>
+				<separator height="10px" />
+				<hbox width="100%" widths="50%, 50%">
+					<div id="searchDiv" style="width: 100%">
+						<div>
+							<label sclass="labelNSGrayNormal" value="Αφετηρία" />
+							<separator />
+							<label id="startError" visible="false" multiline="true" width="100%"
+							       sclass="labelMandatory" />
+							<separator />
+							<h:input id="startPoint" class="rounded_input" type="text" size="55"
+							         placeholder="Εισάγετε αφετηρία"/>
+							<space width="2px" />
+							<h:button title="Επιλέξτε τοποθεσία στο χάρτη" id="fromSearchMap">
+								<image src="/img/crosshair.png" />
+							</h:button>
+							<h:button title="Επιλέξτε δημοφιλή τοποθεσία" id="depListPlaces">
+								<image src="/img/liststar.png" />
+							</h:button>
+							<h:button title="Οι διευθύνσεις μου" id="depHomePlace">
+								<image src="/img/homeLocation.png" />
+							</h:button>
+							<separator />
+							<label sclass="labelNSGrayNormal" value="Ακτίνα" />
+							<separator />
+							<label id="fromRadiusError" visible="false" multiline="true" width="100%"
+							       sclass="labelMandatory" />
+							<separator />
+							<intbox id="fromRadius" width="100px" mold="rounded" />
+							<space width="2px" />
+							<label value="μέτρα" />
+							<textbox id="startCoordsHolder" onChanging="@command('onSearch')" visible="false">
+								<custom-attributes org.zkoss.zk.ui.updateByClient="true" />
+							</textbox>
+						</div>
+						<separator height="20px" />
+						<div>
+							<label sclass="labelNSGrayNormal" value="Προορισμός" />
+							<separator />
+							<label id="endError" visible="false" multiline="true" width="100%"
+							       sclass="labelMandatory" />
+							<separator />
+							<h:input id="endPoint" class="rounded_input" type="text" size="55"
+							         placeholder="Εισάγετε προορισμό" />
+							<space width="2px" />
+							<h:button title="Επιλέξτε τοποθεσία στο χάρτη" id="toSearchMap">
+								<image src="/img/crosshair.png" />
+							</h:button>
+							<h:button title="Επιλέξτε δημοφιλή τοποθεσία" id="arrListPlaces">
+								<image src="/img/liststar.png" />
+							</h:button>
+							<h:button title="Οι διευθύνσεις μου" id="arrHomePlace">
+								<image src="/img/homeLocation.png" />
+							</h:button>
+							<separator />
+							<label sclass="labelNSGrayNormal" value="Ακτίνα" />
+							<separator />
+							<label id="toRadiusError" visible="false" multiline="true" width="100%"
+							       sclass="labelMandatory" />
+							<separator />
+							<intbox id="toRadius" width="100px" mold="rounded" />
+							<space width="2px" />
+							<label value="μέτρα" />
+							<textbox id="endCoordsHolder" visible="false">
+								<custom-attributes org.zkoss.zk.ui.updateByClient="true" />
+							</textbox>
+						</div>
+						<h:div id="dialog-form-from" title="Επιλέξτε Αφετηρία">
+							<h:div id="search-map-canvas-from" style="width: 580px; height: 410px; z-index: 99999;" />
+						</h:div>
+						<h:div id="dialog-form-to" title="Επιλέξτε Προορισμό">
+							<h:div id="search-map-canvas-to" style="width: 580px; height: 410px; z-index: 99999" />
+						</h:div>
+						<separator height="20px" />
+						<hbox width="100%" widths="50%, 50%">
+							<div>
+								<label sclass="labelNSGrayNormal" value="${labels.common.date}" />
+								<separator height="5px" />
+								<div>
+									<vbox>
+										<label id="fromDateError" multiline="true" width="100%"
+										       sclass="labelMandatory" />
+										<label sclass="labelNSGrayNormal" value="${labels.route.dateFrom}:" />
+										<datebox id="dateFrom"
+										         cols="12" format="short " mold="rounded" constraint="no past"
+										         value="@bind(fx.dateFrom)" />
+									</vbox>
+								</div>
+								<div>
+									<vbox>
+										<label id="toDateError" multiline="true" width="100%" sclass="labelMandatory" />
+										<label sclass="labelNSGrayNormal" value="${labels.route.dateTo}:" />
+										<datebox id="dateTo" constraint="no past: Λανθασμένη τιμή"
+										         cols="12" format="short " mold="rounded"
+										         value="@bind(fx.dateTo)" />
+									</vbox>
+								</div>
+							</div>
+							<div>
+								<label sclass="labelNSGrayNormal" value="${labels.common.time}" />
+								<separator height="5px" />
+								<div>
+									<vbox>
+										<label multiline="true" width="100%" sclass="labelMandatory"
+										       value="@load(vmsgs['fx_timeFrom'])" />
+										<label sclass="labelNSGrayNormal" value="${labels.route.timeFrom}:" />
+										<timebox id="timeFrom"
+										         cols="12" format="HH:mm" mold="rounded"
+										         value="@bind(fx.timeFrom)" />
+									</vbox>
+								</div>
+								<div>
+									<vbox>
+										<label multiline="true" width="100%" sclass="labelMandatory"
+										       value="@load(vmsgs['fx_timeTo'])" />
+										<label sclass="labelNSGrayNormal" value="${labels.route.timeTo}:" />
+										<timebox id="timeTo"
+										         cols="12"
+										         format="HH:mm" mold="rounded"
+										         value="@bind(fx.timeTo)" />
+									</vbox>
+								</div>
+							</div>
+						</hbox>
+					</div>
+					<div>
+						<separator height="20px" />
+						<hbox width="100%" widths="50%, 50%">
+							<div>
+								<label sclass="labelNSGrayNormal" value="${labels.route.availability}:" />
+								<separator height="3px" />
+								<div>
+									<radiogroup width="100%" id="availabilityRG"
+									            selectedItem="@bind(vm.routeSearchCriteria.availability) @converter('org.teiath.web.converter.RadiogroupIntegerConverter')">
+										<div>
+											<radio value="1" label="${labels.route.availableOnly}"
+											       radiogroup="availabilityRG"
+											       onCheck="@command('availabilityEnabled')" />
+										</div>
+										<div>
+											<radio value="0" label="${labels.route.all}" radiogroup="availabilityRG"
+											       selected="true" onCheck="@command('availabilityDisabled')" />
+										</div>
+									</radiogroup>
+								</div>
+								<separator height="10px" />
+								<div id="peopleNumberDiv" visible="false">
+									<label sclass="labelNSGrayNormal" value="${labels.route.peopleNumber}:" />
+									<intbox id="peopleNumberIntbox" value="@bind(vm.routeSearchCriteria.peopleNumber)"
+									        format="#" constraint="no negative: Λανθασμένη τιμή" />
+								</div>
+							</div>
+
+							<div>
+								<label sclass="labelNSGrayNormal" value="${labels.route.objectAllowed}" />
+								<separator height="3px" />
+								<div>
+									<radiogroup width="100%" id="objectAllowedRG"
+									            selectedItem="@bind(vm.routeSearchCriteria.objectTransportAllowed) @converter('org.teiath.web.converter.RadiogroupIntegerConverter')">
+										<radio value="1" label="${labels.common.yes}" radiogroup="objectAllowedRG"
+										       tabindex="1" />
+										<radio value="0" label="${labels.common.no}" radiogroup="objectAllowedRG"
+										       tabindex="2"
+										       selected="true" />
+									</radiogroup>
+								</div>
+								<separator height="15px" />
+								<label width="100%" sclass="labelNSGrayNormal"
+								       value="${labels.route.contributionAmount}" />
+								<separator height="3px" />
+								<div>
+									<intbox id="contributionAmountIntbox"
+									        value="@bind(vm.routeSearchCriteria.maxAmount)"
+									        format=",###.##" constraint="no negative: Λανθασμένη τιμή" />
+								</div>
+							</div>
+						</hbox>
+						<separator height="20px" />
+						<hbox width="100%" widths="50%, 50%">
+							<div>
+								<label sclass="labelNSGrayNormal" value="${labels.route.smokingAllowed}" />
+								<separator height="3px" />
+								<div>
+									<radiogroup width="100%" id="smokingAllowedRG"
+									            selectedItem="@bind(vm.routeSearchCriteria.smokingAllowed) @converter('org.teiath.web.converter.RadiogroupIntegerConverter')">
+										<radio value="1" label="${labels.common.yes}" radiogroup="smokingAllowedRG"
+										       tabindex="3" />
+										<radio value="0" label="${labels.common.no}" radiogroup="smokingAllowedRG"
+										       tabindex="4" />
+										<radio value="-1" label="${labels.common.not_specified}"
+										       radiogroup="smokingAllowedRG"
+										       selected="true" tabindex="5" />
+									</radiogroup>
+								</div>
+								<separator height="15px" />
+								<div>
+									<label sclass="labelNSGrayNormal" value="${labels.route.labels}" />
+									<separator height="3px" />
+									<label sclass="labelNSGrayNormal" value="[διαχωρίστε τις ετικέτες με κόμμα]" />
+									<separator height="3px" />
+									<div>
+										<textbox id="tags" tabindex="1" width="200px"
+										         mold="rounded" value="@bind(vm.routeSearchCriteria.tags)" />
+									</div>
+								</div>
+							</div>
+							<div>
+								<checkbox id="sendHome" checked="@bind(vm.routeSearchCriteria.ameaAccessible)" />
+								<label width="100%" sclass="labelNSGrayNormal"
+								       value="${labels.route.ameaAccessible}:" />
+								<separator height="35px" />
+								<label sclass="labelNSGrayNormal" value="${labels.route.code}:" />
+								<separator height="3px" />
+								<textbox mold="rounded" tabindex="1" value="@bind(vm.routeSearchCriteria.code)" />
+							</div>
+						</hbox>
+						<separator height="30px" />
+						<hbox width="100%" widths="50%, 50%">
+							<div>
+								<label sclass="labelNSGrayNormal" value="Ιδιότητα οδηγού:" />
+								<separator height="3px" />
+								<radiogroup width="100%" id="driverTypeRG"
+								            selectedItem="@bind(vm.routeSearchCriteria.userType) @converter('org.teiath.web.converter.RadiogroupIntegerConverter')">
+									<div>
+										<radio value="-1" label="Αδιάφορο" radiogroup="driverTypeRG" />
+									</div>
+									<div>
+										<radio value="0" label="Εξωτερικός χρήστης"
+										       radiogroup="driverTypeRG" />
+									</div>
+									<div>
+										<radio value="1" label="Φοιτητής" radiogroup="driverTypeRG" />
+									</div>
+									<div>
+										<radio value="2" label="Καθηγητής" radiogroup="driverTypeRG" />
+									</div>
+									<div>
+										<radio value="3" label="Διοικητικός υπάλληλος" radiogroup="driverTypeRG" />
+									</div>
+								</radiogroup>
+							</div>
+							<div>
+								<label value="${labels.common.paging}:" />
+								<intbox id="pageSize" width="50px" value="10" />
+								<separator height="10px" />
+								<label value="${labels.common.orderBy}:" />
+								<listbox id="orderBy" mold="select"
+								         style="font-size: 11px; color: #5E5E5E; font-family: Verdana,Arial;">
+									<listitem label="${labels.common.hitRatio}" value="1" selected="true" />
+									<listitem label="${labels.common.routeDate}" value="2" />
+								</listbox>
+							</div>
+						</hbox>
+					</div>
+				</hbox>
+				<separator height="10px" />
+				<hbox width="100%" widths="40%,50%,10%">
+					<div></div>
+					<div>
+						<toolbarbutton image="/img/search.png">
+							<attribute name="onClick">
+								Clients.evalJavaScript("doSearch();");
+							</attribute>
+						</toolbarbutton>
+						<space width="20px" />
+						<toolbarbutton image="/img/reset.png"
+						               onClick="@command('onResetSearch')" />
+					</div>
+					<div></div>
+				</hbox>
+			</groupbox>
+			<separator height="30px" />
+			<h:div id="results-map-canvas" style="width: 100%; height: 600px" />
+			<label id="searchPoint" visible="false" />
+			<label id="searchRadius" visible="false" />
+			<textbox id="routeData" onChanging="@command('onClickRoute')" visible="false">
+				<custom-attributes org.zkoss.zk.ui.updateByClient="true" />
+			</textbox>
+			<separator height="30px" />
+			<hbox width="100%" widths="50%, 50%">
+				<div align="left">
+					<toolbarbutton id="viewAllbtn" image="/img/viewAll.png" onClick="@command('onDisplayAll')"
+					               visible="false" disabled="@load(empty vm.selectedRoute)" />
+				</div>
+				<div align="right">
+					<hbox id="toolbar" visible="false">
+						<toolbarbutton id="viewButton" image="/img/view.png" onClick="@command('onView')"
+						               disabled="@load(empty vm.selectedRoute)" />
+						<toolbarbutton id="inquiryButton" image="/img/inquiry.png" onClick="@command('onInquiry')"
+						               disabled="true" />
+						<toolbarbutton image="/img/print.png"
+						               onClick="@command('onPrintPDF')" />
+					</hbox>
+				</div>
+			</hbox>
+		</div>
+		<div id="resultsDiv">
+			<listbox model="@load(vm.routesList)" selectedItem="@bind(vm.selectedRoute)"
+			         id="routesListbox" width="99%" context="contextPopup" visible="false"
+			         onSelect="@command('onRouteSelect')" mold="paging" pageSize="10">
+				<listhead>
+					<listheader id="routeDate" label="${labels.route.date}" width="11%" sort="auto(routeDate)"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="routeTime" label="${labels.route.time}" width="7%" sort="auto(routeTime)"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="code" label="Κωδικός" width="15%"
+					            sort="auto(code)"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="startingPoint" label="${labels.route.startingPoint}" width="13%"
+					            sort="auto(startingPoint)"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="destinationPoint" label="${labels.route.destinationPoint}" width="13%"
+					            sort="auto(destinationPoint)"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="vehicle" label="${labels.route.vehicle}" width="13%" sort="auto(vehicle.fullName)"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="user.id" label="${labels.route.driver}" width="15%" sort="auto(user.fullName)"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="totalSeats" label="${labels.route.totalSeats}" width="15%"
+					            sort="auto(totalSeats)"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="reservations" label="${labels.route.reservedSeats}" width="15%"
+					            sort="auto(reservations)"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader id="rating" label="${labels.common.hitRatio}" width="13%" sort="auto(routeRating)"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+					<listheader  label="" width="13%"
+					            style="background:#32312F;color:white;border-style:solid; text-align: center;white-space: normal;" />
+				</listhead>
+				<template name="model" var="item">
+					<listitem>
+						<listcell label="@load(item.routeDate) @converter('formatedDate', format='dd/MM/yyyy')"
+						          style="text-align: center" />
+						<listcell label="@load(item.routeTime) @converter('formatedDate', format='HH:mm')"
+						          style="text-align: center" />
+						<listcell label="@load(item.code)" style="text-align: center" />
+						<listcell label="@load(item.startingPoint)" />
+						<listcell label="@load(item.destinationPoint)" />
+						<listcell label="@load(item.vehicle.fullName)" />
+						<listcell label="@load(item.user.fullName)" />
+						<listcell label="@load(item.totalSeats)" style="text-align: center" />
+						<listcell label="@load(item.reservations)" style="text-align: center" />
+						<listcell label="@load(item.routeRating)" style="text-align: center" />
+						<listcell style="text-align: center;">
+							<image src="/img/inquired.png" if="${item.inquiredByUser}" />
+						</listcell>
+					</listitem>
+				</template>
+			</listbox>
+		</div>
+	</div>
+	<h:div id="dialog-form" title="Δημοφιλείς Τοποθεσίες">
+		<h:ol id="selectable">
+		</h:ol>
+	</h:div>
+	<h:div id="dialog-form-my-places" title="Οι Τοποθεσίες μου">
+		<h:ol id="myPlacesSelectable">
+		</h:ol>
+	</h:div>
+</window>
